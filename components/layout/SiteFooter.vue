@@ -12,7 +12,7 @@
         pour tout savoir sur cette adresse !
       </h2>
 
-      <p class="text-xs text-black text-opacity-50 mt-20">
+      <p class="text-xs text-black text-opacity-50 mt-20 font-robotoslab">
         Les données signalées ci-dessus par un astérisque sont nécessaires pour nous permettre de répondre à votre demande d'information. Elles sont collectées et traitées informatiquement par PITCH IMMO (société du groupe ALTAREA) uniquement sur la base de votre consentement. Pour en savoir plus sur le traitement de vos données et vos droits, consultez notre politique de protection des données.
       </p>
     </div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="pt-40 px-40">
-      <p class="text-xs text-black text-opacity-50">
+      <p class="text-xs text-black text-opacity-50 font-robotoslab">
         Mentions légales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis tortor dolor sed lobortis tortor velit sed. Semper sagittis praesent elit, varius. Non cursus praesent faucibus proin. Condimentum vulputate aenean odio nullam magna morbi. Consectetur lacus egestas egestas sed egestas eleifend lorem orci. Turpis pharetra massa, gravida integer amet, bibendum ullamcorper. Libero, tristique viverra interdum magna. Venenatis est netus auctor quam. Sit ac elementum dolor, facilisis. Consectetur duis tellus faucibus purus pellentesque neque, nullam tortor at. Porttitor nisl velit est eros eget ultricies nisl. Consequat feugiat quis faucibus molestie lacus ut vitae. Id interdum sed turpis non pretium. Sapien pellentesque bibendum erat proin. Nascetur tempus, adipiscing turpis pretium viverra turpis est adipiscing.
         Molestie porttitor fames sed leo arcu nulla fusce nam. Eu non nibh feugiat senectus metus, risus a cras. Morbi sit duis fermentum feugiat pretium quis iaculis libero. A tincidunt pharetra, nam lectus tincidunt eget justo. Nulla sed et, et tincidunt id. Molestie sed proin tempus nec turpis. At cursus facilisis at molestie sit mattis. Urna consectetur blandit cras dignissim vel. Mattis tincidunt ultrices non tortor in. Aliquet eu egestas enim feugiat aliquam lorem nibh. Ipsum at dignissim pellentesque scelerisque porttitor lacus, facilisis. Tempus sit dictum a senectus non nunc magna blandit.
       </p>
@@ -42,10 +42,85 @@
       </div>
     </div>
 
-    <div class="pt-32 px-40 flex justify-between">
-      <div>
-        
+    <div class="pt-28 px-40 flex justify-between">
+      <div class="flex gap-32 items-center">
+        <div>
+          <logo-pitch-immo />
+        </div>
+        <p class="text-xs font-robotoslab">
+          Espace de vente Ki<br />
+          19 Boulevard Eugène Deruelle, Lyon 3<br />
+          Du lundi au samedi de 10h à 19h
+        </p>
+        <div>
+          <nuxt-img
+            src="/img/numero.png"
+            alt="Des appartements neufs d’exception à Lyon"
+            class="w-[267px]"
+            loading="lazy"
+            format="webp"
+          />
+          <p class="text-xs mt-2 font-robotoslab">
+            Nos conseillers sont à votre écoute
+          </p>
+        </div>
       </div>
+      <div class="flex gap-10">
+        <a
+          href="https://www.instagram.com/pitch_immo"
+          target="_blank"
+          title="Instagram"
+          class="w-24 h-24 relative bg-white border border-solid border-black border-opacity-10 rounded-full flex justify-center items-center"
+        >
+          <instagram class="w-8 h-auto" />
+        </a>
+        <a
+          href="https://www.facebook.com/pitchimmo"
+          target="_blank"
+          title="Facebook"
+          class="w-24 h-24 relative bg-white border border-solid border-black border-opacity-10 rounded-full flex justify-center items-center"
+        >
+          <facebook class="w-8 h-auto" />
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCgsir2lc2uerOH0PSMCEoSQ"
+          target="_blank"
+          title="YouTube"
+          class="w-24 h-24 relative bg-white border border-solid border-black border-opacity-10 rounded-full flex justify-center items-center"
+        >
+          <youtube class="w-8 h-auto" />
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-20 px-40 flex gap-10 items-center">
+      <nuxt-link
+        to="#"
+        title="Données personnelles"
+        class="text-xs underline font-robotoslab"
+      >
+        Données personnelles
+      </nuxt-link>
+      <span class="text-cta2 font-robotoslab">
+        |
+      </span>
+      <nuxt-link
+        to="#"
+        title="Politique des cookies"
+        class="text-xs underline font-robotoslab"
+      >
+        Politique des cookies
+      </nuxt-link>
+      <span class="text-cta2 font-robotoslab">
+        |
+      </span>
+      <nuxt-link
+        to="#"
+        title="Mentions légales"
+        class="text-xs underline font-robotoslab"
+      >
+        Mentions légales
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -53,11 +128,17 @@
 <script>
   import ArrowBottom from '@/assets/img/svg/arrow-bottom.svg?inline'
   import LogoPitchImmo from '@/assets/img/svg/logo-pitch-immo.svg?inline'
+  import Instagram from '@/assets/img/svg/instagram.svg?inline'
+  import Facebook from '@/assets/img/svg/facebook.svg?inline'
+  import Youtube from '@/assets/img/svg/youtube.svg?inline'
 
   export default {
     components: {
       ArrowBottom,
-      LogoPitchImmo
+      LogoPitchImmo,
+      Instagram,
+      Facebook,
+      Youtube
     }
   }
 </script>
