@@ -238,6 +238,38 @@
         </div>
       </div>
     </div>
+
+    <div class="px-56">
+      <div class="lg:flex justify-between items-center pr-20 mb-60">
+        <div class="lg:w-1/2 relative">
+          <nuxt-img
+            src="/img/map.png"
+            alt="Map"
+            class="w-full"
+            loading="lazy"
+            format="webp"
+          />
+        </div>
+        <div class="lg:w-2/5">
+          <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+            Au cœur de la ville de Lyon
+          </h3>
+          <h2 class="text-h2 font-black font-roboto mt-4 mb-8 uppercase">
+            Un cœur vibrant,<br />une dynamique exemplaire
+          </h2>
+          <p class="text-s font-robotoslab">
+            Au coeur de ce quartier, 2ème pôle tertiaire français après la Défense, ce programme bénéficie d'une desserte exceptionnelle. A proximité immédiate, vous accéderez à l'un des plus grands centres commerciaux de France, la gare de Lyon Part-Dieu, l'Auditorium de Lyon et les fameuses Halles Paul Bocuse. 
+          </p>
+          <!-- <nuxt-link
+            to="#"
+            title="Découvrir le quartier"
+            class="button bg-white mt-16"
+          >
+            Découvrir le quartier
+          </nuxt-link> -->
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
