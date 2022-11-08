@@ -70,7 +70,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/svg',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     '@nuxtjs/gtm',
     '@nuxt/image',
     '@nuxtjs/axios',
