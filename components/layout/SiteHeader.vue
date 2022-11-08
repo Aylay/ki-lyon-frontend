@@ -11,8 +11,7 @@
       </div>
       <div class="flex">
         <a
-          href=""
-          download
+          href="/Ki-brochure.pdf"
           title="Télécharger la brochure Ki"
           class="py-20 px-16 text-white font-roboto text-cta1 bg-viking"
         >
