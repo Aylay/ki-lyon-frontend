@@ -11,10 +11,10 @@
       </div>
       <div class="flex">
         <a
-          href="/Ki-brochure.pdf"
+          href="#"
+          v-scroll-to="'#contact'"
           title="Télécharger la brochure Ki"
           class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-1"
-          target="_blank"
         >
           Télécharger la brochure
         </a>
