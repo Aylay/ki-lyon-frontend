@@ -152,6 +152,92 @@
         </div>
       </div>
     </div>
+    <div class="pt-40 px-56">
+      <div class="lg:flex justify-between pl-20 mb-60">
+        <div class="lg:w-2/5 pt-52 pb-60">
+          <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+            Devenir propriétaire
+          </h3>
+          <h2 class="text-h2 font-black font-roboto mt-4 mb-40 uppercase">
+            Une adresse<br /> 
+            d'exception au coeur du 3ème arrondissement 
+            de Lyon
+          </h2>
+
+          <h4 class="text-h4 font-roboto font-black text-bleu-2 uppercase">
+            Acheter, investir, habiter ou travailler
+          </h4>
+          <h3 class="text-h3 font-roboto font-black uppercase">
+            Une réalisation unique
+          </h3>
+          <ul class="mt-10 mb-40 flex flex-col gap-4">
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Conçue par l'architecte de renom Sou Fujimoto, accompagné des cabinets d'architecture Dream et Exndo.
+            </li>
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Véritable lieu de vie où il fera bon travailler et habiter. 550m² de commerces, 22 000 m² de bureaux et 85 appartements. 
+            </li>
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              300 m² de jardins suspendus partagés et aménagés.
+            </li>
+          </ul>
+
+          <h4 class="text-h4 font-roboto font-black text-bleu-2 uppercase">
+            Une adresse de logements neufs sans équivalent 
+          </h4>
+          <h3 class="text-h3 font-roboto font-black uppercase">
+            Un "bâtiment paysage"
+          </h3>
+          <ul class="mt-10 flex flex-col gap-4">
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Un pôle multimodal unique en pied de résidence
+            </li>
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Les logements en vues inédites sur la ville.
+            </li>
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Des prestations de très grandes qualités.
+            </li>
+            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+              Des grands espaces aux belles perspectives.
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="lg:w-1/2 relative"
+          id="owner"
+        >
+          <div
+            class="w-full absolute top-0 h-full transition-opacity duration-500"
+            id="owner1"
+          >
+            <nuxt-img
+              src="/img/proprietaire-1.png"
+              alt="Devenir proprietaire"
+              class="w-full top-[140px] sticky"
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <div
+            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0"
+            id="owner2"
+          >
+            <nuxt-img
+              src="/img/proprietaire-2.png"
+              alt="Devenir proprietaire"
+              class="w-full top-[140px] sticky"
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <span class="button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-white">
+            Voir les perspectives
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -218,6 +304,30 @@
           }
         }
       })
+    },
+
+    methods: {
+      onScroll () {
+        const heightOwnerDivTop = document.getElementById("owner").offsetTop
+        const heightOwnerDivHeight = document.getElementById("owner").clientHeight
+        const middleOwnerDiv = heightOwnerDivTop + heightOwnerDivHeight / 8
+
+        if (scrollY >= middleOwnerDiv) {
+          document.getElementById("owner1").classList.add('opacity-0')
+          document.getElementById("owner2").classList.remove('opacity-0')
+        } else {
+          document.getElementById("owner2").classList.add('opacity-0')
+          document.getElementById("owner1").classList.remove('opacity-0')
+        }
+      }
+    },
+
+    beforeMount () {
+      window.addEventListener('scroll', this.onScroll);
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.onScroll);
     }
   }
 </script>
