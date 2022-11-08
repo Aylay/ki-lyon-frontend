@@ -66,9 +66,9 @@
             </div>
           </div>
           <div class="lg:w-2/5">
-            <p class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+            <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
               Appartements neufs à Lyon
-            </p>
+            </h3>
             <h2 class="text-h2 font-black font-roboto mt-4 mb-8 uppercase">
               Se laisser envahir<br />par un flux d'énergie naturelle
             </h2>
@@ -88,6 +88,69 @@
           </div>
         </div>
       </div>
+
+      <div class="px-40 pb-40">
+        <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black text-center">
+          Des appartements d'exception
+        </h3>
+        <h2 class="text-h2 font-black font-roboto mt-4 mb-24 uppercase text-center">
+          Les atouts d'une résidence<br />idéalement située
+        </h2>
+        <div class="flex gap-40 justify-center">
+          <div class="flex gap-16 items-center">
+            <div class="w-40 border-r border-solid border-bleu-2">
+              <pin class="w-32 h-auto" />
+            </div>
+            <p class="text-s font-robotoslab">
+              Au cœur du quartier<br />
+              de la Part-Dieu, 2ème pôle<br />
+              d'affaires français
+            </p>
+          </div>
+          <div class="flex gap-16 items-center">
+            <div class="w-40 border-r border-solid border-bleu-2">
+              <restaurant class="w-32 h-auto" />
+            </div>
+            <p class="text-s font-robotoslab">
+              Nombreux<br />
+              commerces, restaurants<br />
+              et services sur place
+            </p>
+          </div>
+          <div class="flex gap-16 items-center">
+            <div class="w-40 border-r border-solid border-bleu-2">
+              <avion class="w-32 h-auto" />
+            </div>
+            <p class="text-s font-robotoslab">
+              Aéroport Lyon Saint-<br />
+              Exupéry à 30 min par<br />
+              le tramway Rhônexpress
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-40 justify-center mt-24">
+          <div class="flex gap-16 items-center">
+            <div class="w-40 border-r border-solid border-bleu-2">
+              <train class="w-32 h-auto" />
+            </div>
+            <p class="text-s font-robotoslab">
+              Paris, Marseille<br />
+              et Genève à 2h par<br />
+              le train*
+            </p>
+          </div>
+          <div class="flex gap-16 items-center">
+            <div class="w-40 border-r border-solid border-bleu-2">
+              <pole class="w-32 h-auto" />
+            </div>
+            <p class="text-s font-robotoslab">
+              Un pôle<br />
+              multimodal unique<br /> 
+              en pied de résidence
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +158,12 @@
 <script>
   import 'swiper/swiper-bundle.min.css'
   import ArrowBottom from '@/assets/img/svg/arrow-bottom-header.svg?inline'
+
+  import Avion from '@/assets/img/svg/avion.svg?inline'
+  import Pole from '@/assets/img/svg/pole.svg?inline'
+  import Restaurant from '@/assets/img/svg/restaurant.svg?inline'
+  import Pin from '@/assets/img/svg/pin.svg?inline'
+  import Train from '@/assets/img/svg/train.svg?inline'
 
   export default {
     data () {
@@ -118,7 +187,12 @@
     },
 
     components: {
-      ArrowBottom
+      ArrowBottom,
+      Avion,
+      Pole,
+      Restaurant,
+      Pin,
+      Train
     },
 
     mounted() {
