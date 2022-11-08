@@ -325,6 +325,46 @@
         </div>
       </div>
     </div>
+
+    <div class="h-[456px] relative flex justify-center items-center">
+      <div class="absolute w-full h-full z-0">
+        <nuxt-img
+          src="/img/bg-nuage.jpg"
+          alt="Nuage"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          format="webp"
+        />
+      </div>
+      <div class="text-center relative z-10">
+        <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+          Pour nous rencontrer
+        </h3>
+        <h2 class="text-h2 font-black font-roboto mt-4 mb-16 uppercase text-white">
+          Où nous trouver
+        </h2>
+        <p class="text-s font-robotoslab text-white">
+          Espace de vente Ki<br />
+          19 Boulevard Eugène Deruelle, Lyon 3<br />
+          Du lundi au samedi de 10h à 19h
+        </p>
+        <div class="flex justify-center gap-10">
+          <a
+            href="https://goo.gl/maps/Sb9qGebF3wdUyQER8"
+            target="_blank"
+            title="Se rendre à l'espace de vente Ki"
+            class="button bg-white"
+          >
+            Je m'y rends
+          </a>
+          <span
+            class="button bg-white"
+          >
+            Je prends rendez-vous
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
