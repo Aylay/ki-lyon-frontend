@@ -23,22 +23,16 @@ module.exports = {
       'h1': ['5.5rem', {
         lineHeight: '6.5rem',
         letterSpacing: '0.1em',
-        fontWeight: '900',
       }],
       'h2': ['3rem', {
         lineHeight: '4rem',
         letterSpacing: '0.1em',
-        fontWeight: '900',
       }],
       'h3': ['2rem', {
         lineHeight: '3rem',
         letterSpacing: '0.1em',
-        fontWeight: '900',
       }],
-      'h4': ['1.2rem', {
-        lineHeight: '1.4rem',
-        fontWeight: '900',
-      }],
+      'h4': ['1.2rem', '1.4rem'],
       'm': ['2.2rem', '3.2rem'],
       's': ['1.8rem', '2.8rem'],
       'xs': ['1.2rem', '1.8rem'],
@@ -51,6 +45,9 @@ module.exports = {
       },
       height: {
         'full-header': 'calc(100vh - 123px)'
+      },
+      borderRadius: {
+        '70px': '7rem'
       }
     }
   }

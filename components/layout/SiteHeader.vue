@@ -14,6 +14,7 @@
           href="/Ki-brochure.pdf"
           title="Télécharger la brochure Ki"
           class="py-20 px-16 text-white font-roboto text-cta1 bg-viking"
+          target="_blank"
         >
           Télécharger la brochure
         </a>
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-  import LogoKi from '@/assets/img/svg/LogoKi.svg?inline'
+  import LogoKi from '@/assets/img/svg/logo-ki.svg?inline'
 
   export default {
     components: {
