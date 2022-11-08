@@ -4,7 +4,7 @@
       <div class="absolute h-full w-full z-0">
         <nuxt-img
           src="/img/header-1.jpg"
-          alt="Header"
+          alt="Des appartements neufs d’exception à Lyon"
           class="w-full h-full object-cover"
           loading="lazy"
           format="webp"
@@ -350,7 +350,7 @@
         </p>
         <div class="flex justify-center gap-10">
           <a
-            href="https://goo.gl/maps/Sb9qGebF3wdUyQER8"
+            href="https://goo.gl/maps/e9tCba2dSkghoSbF8"
             target="_blank"
             title="Se rendre à l'espace de vente Ki"
             class="button bg-white"
@@ -359,6 +359,7 @@
           </a>
           <span
             class="button bg-white"
+            v-scroll-to="'#contact'"
           >
             Je prends rendez-vous
           </span>
@@ -395,7 +396,8 @@
             src: 'flux-1.png',
             alt: 'alt 3'
           }
-        ]
+        ],
+        siteURL: process.env.SITE_URL,
       }
     },
 
@@ -411,7 +413,6 @@
     mounted() {
       const swiper1 = new this.$swiper('.swiper-1', {
         loop: true,
-        // configure Swiper to use modules
         modules: [this.$swiperModules.Autoplay, this.$swiperModules.Pagination, this.$swiperModules.EffectFade],
         autoplay: {
           delay: 5000
@@ -455,7 +456,22 @@
 
     beforeDestroy() {
       window.removeEventListener('scroll', this.onScroll);
-    }
+    },
+
+    head () {
+      return {
+        title: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon',
+        meta: [
+          { hid: 'description', name: 'description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
+          { hid: 'ogdescription', property: 'og:description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
+          { hid: 'url', property: 'og:url', content: this.siteURL + this.$route.path },
+          { hid: 'title', property: 'og:title', content: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon' },
+        ],
+        link: [
+          { rel: 'canonical', href: this.siteURL + this.$route.path }
+        ]
+      }
+    },
   }
 </script>
 

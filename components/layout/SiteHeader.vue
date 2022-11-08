@@ -10,22 +10,20 @@
         </nuxt-link>
       </div>
       <div class="flex">
-        <a
-          href="#"
+        <span
           v-scroll-to="'#contact'"
           title="Télécharger la brochure Ki"
-          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-1"
+          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-1 cursor-pointer"
         >
           Télécharger la brochure
-        </a>
-        <a
-          href="#"
+        </span>
+        <span
           v-scroll-to="'#contact'"
           title="Contactez-nous"
-          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-2"
+          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-2 cursor-pointer"
         >
           Contactez-nous
-        </a>
+        </span>
       </div>
     </div>
   </header>

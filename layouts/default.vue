@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div id="top">
     <site-header />
     <main role="main" class="bg-white max-w-1512px mx-auto">
       <Nuxt />
     </main>
-    <site-footer />
+    <site-footer class="bg-white max-w-1512px mx-auto" />
   </div>
 </template>
 
