@@ -270,6 +270,61 @@
         </div>
       </div>
     </div>
+
+    <div class="px-40 pb-40">
+      <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black text-center">
+        Une architecture respectueuse de l'environnement
+      </h3>
+      <h2 class="text-h2 font-black font-roboto mt-4 mb-24 uppercase text-center">
+        Prôner une philosophie<br />du respect
+      </h2>
+      <div class="flex gap-40 justify-center">
+        <div class="flex gap-16 items-center">
+          <div class="w-80 border-r border-solid border-bleu-2">
+            <nuxt-img
+              src="/img/biodivercity.png"
+              alt="Biodivercity"
+              class="w-64"
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <p class="text-s font-robotoslab">
+            Premier et seul outil de labellisation<br />permettant d’évaluer l’impact des<br />constructions en termes d’intégration<br />à la nature et de continuité écologique.
+          </p>
+        </div>
+        <div class="flex gap-16 items-center">
+          <div class="w-72 border-r border-solid border-bleu-2">
+            <nuxt-img
+              src="/img/label.png"
+              alt="Label"
+              class="w-64"
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <p class="text-s font-robotoslab">
+            Reconnaît l’engagement pour la prévention<br /> et la gestion de déchets et/ou la valorisation<br /> de matériaux alternatifs issus de déchets<br /> non dangereux.
+          </p>
+        </div>
+      </div>
+      <div class="flex gap-40 justify-center mt-32">
+        <div class="flex gap-16 items-center">
+          <div class="w-80 border-r border-solid border-bleu-2">
+            <nuxt-img
+              src="/img/nf.png"
+              alt="NF"
+              class="w-64"
+              loading="lazy"
+              format="webp"
+            />
+          </div>
+          <p class="text-s font-robotoslab">
+            Label de référence dans le secteur du<br />bâtiment, il garantit la performance globale<br /> des appartements pour un meilleur confort<br /> de vie (isolation sonore et thermique,<br />salubrité).
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
