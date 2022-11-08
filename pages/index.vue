@@ -149,11 +149,11 @@
 </script>
 
 <style>
-.swiper-1-pagination.swiper-pagination-progressbar {
+#apts .swiper-1-pagination.swiper-pagination-progressbar {
   @apply w-1/2 relative bg-bleu-2 bg-opacity-20;
   height: 3px;
 }
-.swiper-1-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+#apts .swiper-1-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   @apply bg-bleu-2;
 }
 </style>
