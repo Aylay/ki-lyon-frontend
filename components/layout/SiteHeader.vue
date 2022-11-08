@@ -13,7 +13,7 @@
         <a
           href="/Ki-brochure.pdf"
           title="Télécharger la brochure Ki"
-          class="py-20 px-16 text-white font-roboto text-cta1 bg-viking"
+          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-1"
           target="_blank"
         >
           Télécharger la brochure
@@ -22,7 +22,7 @@
           href="#"
           v-scroll-to="'#contact'"
           title="Contactez-nous"
-          class="py-20 px-16 text-white font-roboto text-cta1 bg-st-tropaz"
+          class="py-20 px-16 text-white font-roboto text-cta1 bg-bleu-2"
         >
           Contactez-nous
         </a>

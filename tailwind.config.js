@@ -12,8 +12,8 @@ module.exports = {
       black: '#000000',
       white: '#FFFFFF',
       transparent: 'transparent',
-      'viking': '#79B6DD',
-      'st-tropaz': '#275C9B'
+      'bleu-1': '#79B6DD',
+      'bleu-2': '#275C9B'
     },
     fontFamily: {
       'roboto': ['Roboto', 'Arial', 'sans-serif'],
@@ -32,7 +32,10 @@ module.exports = {
         lineHeight: '3rem',
         letterSpacing: '0.1em',
       }],
-      'h4': ['1.2rem', '1.4rem'],
+      'h4': ['1.2rem', {
+        lineHeight: '1.4rem',
+        letterSpacing: '0.1em',
+      }],
       'm': ['2.2rem', '3.2rem'],
       's': ['1.8rem', '2.8rem'],
       'xs': ['1.2rem', '1.8rem'],
