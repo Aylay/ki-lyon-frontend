@@ -24,6 +24,7 @@ export default {
       { hid: 'type', property: 'og:type', content: 'website'},
       { hid: 'site_name', property: 'og:site_name', content: 'Imagine 2050'},
       { hid: 'twitter_card', name: 'twitter_card', content: 'summary_large_image'},
+      { hid: 'robots', name:'robots', content:'noindex'}
     ],
     link: [
       { rel: 'manifest', href: 'https://imagine2050.fr/favicon/manifest.json' },
@@ -76,10 +77,10 @@ export default {
     'vue-scrollto/nuxt'
   ],
 
-  gtm: {
-    id: 'AW-10785325481',
-    scriptDefer: true
-  },
+  // gtm: {
+  //   id: 'AW-10785325481',
+  //   scriptDefer: true
+  // },
 
   googleFonts: {
     families: {
@@ -97,12 +98,12 @@ export default {
   axios: {
   },
 
-  sitemap: {
-    path: '/sitemap.xml',
-    gzip: true,
-    exclude: urlExclude,
-    hostname: process.env.SITE_URL,
-  },
+  // sitemap: {
+  //   path: '/sitemap.xml',
+  //   gzip: true,
+  //   exclude: urlExclude,
+  //   hostname: process.env.SITE_URL,
+  // },
 
   markdownit: {
     runtime: true
