@@ -19,7 +19,7 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('resize', appHeight)
+    window.addEventListener('resize', this.appHeight())
     this.appHeight()
   },
 
@@ -30,3 +30,4 @@ export default {
     }
   }
 }
+</script>

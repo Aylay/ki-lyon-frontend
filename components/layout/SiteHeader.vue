@@ -87,7 +87,7 @@
         this.menuOpened = !this.menuOpened
         this.isScrolling = !this.isScrolling
         document.body.classList.toggle('mod')
-      }
+      },
     }
   }
 </script>
