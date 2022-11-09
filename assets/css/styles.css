@@ -11,6 +11,9 @@
 
 @layer components {
   .button {
-    @apply inline-block mt-16 text-cta2 rounded-70px uppercase cursor-pointer py-8 px-12 border border-black border-solid border-opacity-10;
+    @apply text-cta2 rounded-70px uppercase cursor-pointer py-8 px-12 border border-black border-solid border-opacity-10 transition-colors;
+  }
+  .button:hover {
+    @apply bg-bleu-1 text-white;
   }
 }

@@ -18,7 +18,7 @@
         <p class="text-m font-robotoslab mt-8">
           Découvrez des appartements d'exception<br />en plein cœur de la Part-Dieu à Lyon.
         </p>
-        <span class="button bg-white">
+        <span class="button inline-block bg-white mt-16">
           Voir le film
         </span>
       </div>
@@ -81,7 +81,7 @@
             <!-- <nuxt-link
               to="#"
               title="Découvrir les appartements"
-              class="button bg-white mt-16"
+              class="button inline-block bg-white mt-16"
             >
               Découvrir les appartements
             </nuxt-link> -->
@@ -232,7 +232,7 @@
               format="webp"
             />
           </div>
-          <span class="button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-white">
+          <span class="button inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-white">
             Voir les perspectives
           </span>
         </div>
@@ -263,7 +263,7 @@
           <!-- <nuxt-link
             to="#"
             title="Découvrir le quartier"
-            class="button bg-white mt-16"
+            class="button inline-block bg-white mt-16"
           >
             Découvrir le quartier
           </nuxt-link> -->
@@ -348,17 +348,17 @@
           19 Boulevard Eugène Deruelle, Lyon 3<br />
           Du lundi au samedi de 10h à 19h
         </p>
-        <div class="flex justify-center gap-10">
+        <div class="flex justify-center gap-10 mt-16">
           <a
             href="https://goo.gl/maps/e9tCba2dSkghoSbF8"
             target="_blank"
             title="Se rendre à l'espace de vente Ki"
-            class="button bg-white"
+            class="button inline-block bg-white"
           >
             Je m'y rends
           </a>
           <span
-            class="button bg-white"
+            class="button inline-block bg-white"
             v-scroll-to="'#contact'"
           >
             Je prends rendez-vous
@@ -389,11 +389,11 @@
             alt: 'alt 1'
           },
           {
-            src: 'flux-1.png',
+            src: 'flux-2.png',
             alt: 'alt 2'
           },
           {
-            src: 'flux-1.png',
+            src: 'flux-3.png',
             alt: 'alt 3'
           }
         ],

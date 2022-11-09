@@ -32,7 +32,7 @@ module.exports = {
         lineHeight: '3rem',
         letterSpacing: '0.1em',
       }],
-      'h4': ['1.2rem', {
+      'h4': ['1.4rem', {
         lineHeight: '1.4rem',
         letterSpacing: '0.1em',
       }],
@@ -47,7 +47,7 @@ module.exports = {
         '1512px': '151.2rem'
       },
       height: {
-        'full-header': 'calc(100vh - 123px)'
+        'full-header': 'calc(100vh - 129px)'
       },
       borderRadius: {
         '70px': '7rem'
