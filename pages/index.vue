@@ -1,21 +1,28 @@
 <template>
   <div>
-    <div class="h-full-header relative flex items-center">
+    <div class="h-full-header-m lg:h-full-header relative flex lg:items-center">
       <div class="absolute h-full w-full z-0">
         <nuxt-img
-          src="/img/header-1.jpg"
+          src="/img/header.jpg"
           alt="Des appartements neufs d’exception à Lyon"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover hidden lg:block"
+          loading="lazy"
+          format="webp"
+        />
+        <nuxt-img
+          src="/img/header-mobile.jpg"
+          alt="Des appartements neufs d’exception à Lyon"
+          class="w-full h-full object-cover lg:hidden"
           loading="lazy"
           format="webp"
         />
       </div>
-      <div class="flex-1">&nbsp;</div>
-      <div class="relative z-10 pl-8 flex-1">
-        <h1 class="text-h1 uppercase font-roboto font-black max-w-3xl">
+      <div class="flex-1 hidden lg:block">&nbsp;</div>
+      <div class="relative z-10 flex-1 text-center lg:text-left pt-24 lg:pt-0 px-8">
+        <h1 class="text-h1-m lg:text-h1 uppercase font-roboto font-black max-w-3xl">
           Faîtes le rêve<br />de vivre d’air et de lumière
         </h1>
-        <p class="text-m font-robotoslab mt-8">
+        <p class="text-m-m lg:text-m font-robotoslab mt-8">
           Découvrez des appartements d'exception<br />en plein cœur de la Part-Dieu à Lyon.
         </p>
         <span class="button inline-block bg-white mt-16">
@@ -35,11 +42,11 @@
 
     <div
       id="apts"
-      class="pt-48"
+      class="pt-24 lg:pt-48"
     >
-      <div class="px-56">
-        <div class="lg:flex justify-between items-center pr-20 mb-60">
-          <div class="lg:w-1/2 relative">
+      <div class="px-8 lg:px-56">
+        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:pr-20 mb-60">
+          <div class="lg:w-1/2 order-2 lg:order-1 relative">
             <div class="swiper-1 w-full overflow-hidden relative">
               <div class="swiper-wrapper">
                 <div
@@ -57,7 +64,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex justify-center items-center gap-8 absolute left-1/2 transform -translate-x-1/2 -bottom-16 w-full">
+            <div class="flex justify-between lg:justify-center items-center lg:gap-8 absolute left-1/2 transform -translate-x-1/2 -bottom-16 w-full">
               <div class="swiper-1-pagination"></div>
               <p class="text-cta2 font-roboto">
                 <span id="indexSlideActive">0</span>
@@ -65,14 +72,14 @@
               </p>
             </div>
           </div>
-          <div class="lg:w-2/5">
-            <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+          <div class="lg:w-2/5 order-1 lg:order-2 pb-24 lg:pb-0">
+            <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
               Appartements neufs à Lyon
             </h3>
-            <h2 class="text-h2 font-black font-roboto mt-4 mb-8 uppercase">
+            <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-8 uppercase">
               Se laisser envahir<br />par un flux d'énergie naturelle
             </h2>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Et si vous donniez corps à ce rêve ?<br />
               En habitant une nouvelle adresse sans équivalent
               à l'architecture signée d'un référent mondial et
@@ -89,19 +96,19 @@
         </div>
       </div>
 
-      <div class="px-40 pb-40">
-        <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black text-center">
+      <div class="px-8 lg:px-40 py-32 lg:pb-40">
+        <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black lg:text-center">
           Des appartements d'exception
         </h3>
-        <h2 class="text-h2 font-black font-roboto mt-4 mb-24 uppercase text-center">
+        <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-16 lg:mb-24 uppercase lg:text-center">
           Les atouts d'une résidence<br />idéalement située
         </h2>
-        <div class="flex gap-40 justify-center">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-40 justify-center">
           <div class="flex gap-16 items-center">
             <div class="w-40 border-r border-solid border-bleu-2">
               <pin class="w-32 h-auto" />
             </div>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Au cœur du quartier<br />
               de la Part-Dieu, 2ème pôle<br />
               d'affaires français
@@ -111,7 +118,7 @@
             <div class="w-40 border-r border-solid border-bleu-2">
               <restaurant class="w-32 h-auto" />
             </div>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Nombreux<br />
               commerces, restaurants<br />
               et services sur place
@@ -121,19 +128,19 @@
             <div class="w-40 border-r border-solid border-bleu-2">
               <avion class="w-32 h-auto" />
             </div>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Aéroport Lyon Saint-<br />
               Exupéry à 30 min par<br />
               le tramway Rhônexpress
             </p>
           </div>
         </div>
-        <div class="flex gap-40 justify-center mt-24">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-40 justify-center mt-12 lg:mt-24">
           <div class="flex gap-16 items-center">
             <div class="w-40 border-r border-solid border-bleu-2">
               <train class="w-32 h-auto" />
             </div>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Paris, Marseille<br />
               et Genève à 2h par<br />
               le train*
@@ -143,7 +150,7 @@
             <div class="w-40 border-r border-solid border-bleu-2">
               <pole class="w-32 h-auto" />
             </div>
-            <p class="text-s font-robotoslab">
+            <p class="text-s-m lg:text-s font-robotoslab">
               Un pôle<br />
               multimodal unique<br /> 
               en pied de résidence
@@ -152,53 +159,54 @@
         </div>
       </div>
     </div>
-    <div class="pt-40 px-56">
-      <div class="lg:flex justify-between pl-20 mb-60">
-        <div class="lg:w-2/5 pt-52 pb-60">
-          <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+
+    <div class="pt-24 lg:pt-40 px-8 lg:px-56">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:pl-20 mb-32 lg:mb-60">
+        <div class="lg:w-2/5 lg:pt-52 pb-24 lg:pb-60">
+          <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
             Devenir propriétaire
           </h3>
-          <h2 class="text-h2 font-black font-roboto mt-4 mb-40 uppercase">
+          <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-24 lg:mb-40 uppercase">
             Une adresse<br /> 
             d'exception au coeur du 3ème arrondissement 
             de Lyon
           </h2>
 
-          <h4 class="text-h4 font-roboto font-black text-bleu-2 uppercase">
+          <h4 class="text-h4-m lg:text-h4 font-roboto font-black text-bleu-2 uppercase">
             Acheter, investir, habiter ou travailler
           </h4>
-          <h3 class="text-h3 font-roboto font-black uppercase">
+          <h3 class="text-h3-m lg:text-h3 font-roboto font-black uppercase">
             Une réalisation unique
           </h3>
-          <ul class="mt-10 mb-40 flex flex-col gap-4">
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+          <ul class="mt-10 mb-24 lg:mb-40 flex flex-col gap-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Conçue par l'architecte de renom Sou Fujimoto, accompagné des cabinets d'architecture Dream et Exndo.
             </li>
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Véritable lieu de vie où il fera bon travailler et habiter. 550m² de commerces, 22 000 m² de bureaux et 85 appartements. 
             </li>
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               300 m² de jardins suspendus partagés et aménagés.
             </li>
           </ul>
 
-          <h4 class="text-h4 font-roboto font-black text-bleu-2 uppercase">
+          <h4 class="text-h4-m lg:text-h4 font-roboto font-black text-bleu-2 uppercase">
             Une adresse de logements neufs sans équivalent 
           </h4>
-          <h3 class="text-h3 font-roboto font-black uppercase">
+          <h3 class="text-h3-m lg:text-h3 font-roboto font-black uppercase">
             Un "bâtiment paysage"
           </h3>
           <ul class="mt-10 flex flex-col gap-4">
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Un pôle multimodal unique en pied de résidence
             </li>
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Les logements en vues inédites sur la ville.
             </li>
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Des prestations de très grandes qualités.
             </li>
-            <li class="text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
+            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Des grands espaces aux belles perspectives.
             </li>
           </ul>
@@ -209,7 +217,7 @@
           id="owner"
         >
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500"
+            class="w-full relative lg:absolute top-0 h-full transition-opacity duration-500"
             id="owner1"
           >
             <nuxt-img
@@ -221,7 +229,7 @@
             />
           </div>
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
             id="owner2"
           >
             <nuxt-img
@@ -232,16 +240,16 @@
               format="webp"
             />
           </div>
-          <span class="button inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-white">
+          <span class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto">
             Voir les perspectives
           </span>
         </div>
       </div>
     </div>
 
-    <div class="px-56 bg-bleu-1 bg-opacity-10 py-40">
-      <div class="lg:flex justify-between items-center pr-20">
-        <div class="lg:w-1/2 relative">
+    <div class="px-8 lg:px-56 bg-bleu-1 bg-opacity-10 py-24 lg:py-40">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:pr-20">
+        <div class="lg:w-1/2 order-2 lg:order-1 relative">
           <nuxt-img
             src="/img/map.png"
             alt="Map"
@@ -250,14 +258,14 @@
             format="webp"
           />
         </div>
-        <div class="lg:w-2/5">
-          <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+        <div class="lg:w-2/5 order-1 lg:order-2 mb-24 lg:mb-0">
+          <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
             Au cœur de la ville de Lyon
           </h3>
-          <h2 class="text-h2 font-black font-roboto mt-4 mb-8 uppercase">
+          <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-8 uppercase">
             Un cœur vibrant,<br />une dynamique exemplaire
           </h2>
-          <p class="text-s font-robotoslab">
+          <p class="text-s-m lg:text-s font-robotoslab">
             Au coeur de ce quartier, 2ème pôle tertiaire français après la Défense, ce programme bénéficie d'une desserte exceptionnelle. A proximité immédiate, vous accéderez à l'un des plus grands centres commerciaux de France, la gare de Lyon Part-Dieu, l'Auditorium de Lyon et les fameuses Halles Paul Bocuse. 
           </p>
           <!-- <nuxt-link
@@ -271,62 +279,62 @@
       </div>
     </div>
 
-    <div class="px-40 py-40">
-      <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black text-center">
+    <div class="px-8 lg:px-40 py-32 lg:py-40">
+      <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black lg:text-center">
         Une architecture respectueuse de l'environnement
       </h3>
-      <h2 class="text-h2 font-black font-roboto mt-4 mb-24 uppercase text-center">
+      <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-24 uppercase lg:text-center">
         Prôner une philosophie<br />du respect
       </h2>
-      <div class="flex gap-40 justify-center">
-        <div class="flex gap-16 items-center">
-          <div class="w-80 border-r border-solid border-bleu-2">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-40 justify-center">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+          <div class="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/biodivercity.png"
               alt="Biodivercity"
-              class="w-64"
+              class="w-auto max-h-16"
               loading="lazy"
               format="webp"
             />
           </div>
-          <p class="text-s font-robotoslab">
+          <p class="w-full lg:w-auto text-s-m lg:text-s font-robotoslab">
             Premier et seul outil de labellisation<br />permettant d’évaluer l’impact des<br />constructions en termes d’intégration<br />à la nature et de continuité écologique.
           </p>
         </div>
-        <div class="flex gap-16 items-center">
-          <div class="w-72 border-r border-solid border-bleu-2">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+          <div class="w-full lg:w-72 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/label.png"
               alt="Label"
-              class="w-64"
+              class="w-auto max-h-24"
               loading="lazy"
               format="webp"
             />
           </div>
-          <p class="text-s font-robotoslab">
+          <p class="w-full lg:w-auto text-s-m lg:text-s font-robotoslab">
             Reconnaît l’engagement pour la prévention<br /> et la gestion de déchets et/ou la valorisation<br /> de matériaux alternatifs issus de déchets<br /> non dangereux.
           </p>
         </div>
       </div>
-      <div class="flex gap-40 justify-center mt-32">
-        <div class="flex gap-16 items-center">
-          <div class="w-80 border-r border-solid border-bleu-2">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-40 justify-center mt-12 lg:mt-32">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+          <div class="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/nf.png"
               alt="NF"
-              class="w-64"
+              class="w-auto max-h-20"
               loading="lazy"
               format="webp"
             />
           </div>
-          <p class="text-s font-robotoslab">
+          <p class="w-full lg:w-auto text-s-m lg:text-s font-robotoslab">
             Label de référence dans le secteur du<br />bâtiment, il garantit la performance globale<br /> des appartements pour un meilleur confort<br /> de vie (isolation sonore et thermique,<br />salubrité).
           </p>
         </div>
       </div>
     </div>
 
-    <div class="h-[456px] relative flex justify-center items-center">
+    <div class="relative flex justify-center items-center py-32 lg:py-40 px-8">
       <div class="absolute w-full h-full z-0">
         <nuxt-img
           src="/img/bg-nuage.jpg"
@@ -336,24 +344,24 @@
           format="webp"
         />
       </div>
-      <div class="text-center relative z-10">
-        <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black">
+      <div class="lg:text-center relative z-10">
+        <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
           Pour nous rencontrer
         </h3>
-        <h2 class="text-h2 font-black font-roboto mt-4 mb-16 uppercase text-white">
+        <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-4 lg:mb-16 uppercase text-white">
           Où nous trouver
         </h2>
-        <p class="text-s font-robotoslab text-white">
+        <p class="text-s-m lg:text-s font-robotoslab text-white">
           Espace de vente Ki<br />
           19 Boulevard Eugène Deruelle, Lyon 3<br />
           Du lundi au samedi de 10h à 19h
         </p>
-        <div class="flex justify-center gap-10 mt-16">
+        <div class="lg:flex justify-center gap-10 mt-16">
           <a
             href="https://goo.gl/maps/e9tCba2dSkghoSbF8"
             target="_blank"
             title="Se rendre à l'espace de vente Ki"
-            class="button inline-block bg-white"
+            class="button inline-block bg-white mb-4 lg:mb-0"
           >
             Je m'y rends
           </a>
@@ -477,7 +485,7 @@
 
 <style>
 #apts .swiper-1-pagination.swiper-pagination-progressbar {
-  @apply w-1/2 relative bg-bleu-2 bg-opacity-20;
+  @apply w-10/12 lg:w-1/2 relative bg-bleu-2 bg-opacity-20;
   height: 3px;
 }
 #apts .swiper-1-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {

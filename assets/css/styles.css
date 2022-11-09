@@ -11,7 +11,7 @@
 
 @layer components {
   .button {
-    @apply text-cta2 rounded-70px uppercase cursor-pointer py-8 px-12 border border-black border-solid border-opacity-10 transition-colors;
+    @apply text-cta2 rounded-70px uppercase cursor-pointer py-8 px-12 border border-black border-solid border-opacity-10 transition-colors inline-block;
   }
   .button:hover {
     @apply bg-bleu-1 text-white;
