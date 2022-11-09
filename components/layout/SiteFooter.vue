@@ -52,10 +52,13 @@
           19 Boulevard Eugène Deruelle, Lyon 3<br />
           Du lundi au samedi de 10h à 19h
         </p>
-        <div>
+        <a
+          href="tel:+33800123123"
+          title="Numéro vert"
+        >
           <nuxt-img
             src="/img/numero.png"
-            alt="Des appartements neufs d’exception à Lyon"
+            alt="Numéro vert"
             class="w-[267px]"
             loading="lazy"
             format="webp"
@@ -63,7 +66,7 @@
           <p class="text-xs mt-2 font-robotoslab">
             Nos conseillers sont à votre écoute
           </p>
-        </div>
+        </a>
       </div>
       <div class="flex gap-10">
         <a

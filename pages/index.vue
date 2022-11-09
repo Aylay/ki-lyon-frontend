@@ -239,8 +239,8 @@
       </div>
     </div>
 
-    <div class="px-56">
-      <div class="lg:flex justify-between items-center pr-20 mb-60">
+    <div class="px-56 bg-bleu-1 bg-opacity-10 py-40">
+      <div class="lg:flex justify-between items-center pr-20">
         <div class="lg:w-1/2 relative">
           <nuxt-img
             src="/img/map.png"
@@ -271,7 +271,7 @@
       </div>
     </div>
 
-    <div class="px-40 pb-40">
+    <div class="px-40 py-40">
       <h3 class="text-h4 font-roboto uppercase text-bleu-1 font-black text-center">
         Une architecture respectueuse de l'environnement
       </h3>
