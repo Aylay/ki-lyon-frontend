@@ -296,7 +296,7 @@
       </form>
 
       <div v-else>
-        <p class="text-m-m lg:text-m font-semibold font-robotoslab text-center mb-4">Merci {{ genderSelected === 'femme' ? 'Madame' : 'Monsieur' }} {{ lastname }} !</p>
+        <p class="text-m-m lg:text-m font-semibold font-robotoslab text-center mb-4">Merci {{ genderSelected === 'madame' ? 'Madame' : 'Monsieur' }} {{ lastname }} !</p>
         <div
           v-if="wouldLikeSelected.includes('brochure') && !wouldLikeSelected.includes('infos') && !wouldLikeSelected.includes('call') && !wouldLikeSelected.includes('visio') && !wouldLikeSelected.includes('rdv')"
           class="text-center"
@@ -550,11 +550,11 @@
         genderSelected: '',
         genderOptions: [
           {
-            id: 'femme',
+            id: 'madame',
             label: 'Mme.'
           },
           {
-            id: 'homme',
+            id: 'monsieur',
             label: 'M.'
           }
         ],
@@ -614,50 +614,58 @@
 
     methods: {
       async addProspect () {
-        // this.checkForm()
-        // if (this.messageDisplay.length === 0) {
-        //   let newWouldLike = this.wouldLikeSelected.slice()
-        //   let brochure = false
-        //   if (this.wouldLikeSelected.includes('brochure')) {
-        //     brochure = true
-        //     newWouldLike = newWouldLike.filter(e => e !== 'brochure');
-        //   }
+        this.checkForm()
+        if (this.messageDisplay.length === 0) {
+          let newWouldLike = this.wouldLikeSelected.slice()
+          let brochure = false
+          if (this.wouldLikeSelected.includes('brochure')) {
+            brochure = true
+            newWouldLike = newWouldLike.filter(e => e !== 'brochure');
+          }
           
-        //   let info = false
-        //   if (this.wouldLikeSelected.includes('infos')) {
-        //     info = true
-        //     newWouldLike = newWouldLike.filter(e => e !== 'infos')
-        //   }
+          let info = false
+          if (this.wouldLikeSelected.includes('infos')) {
+            info = true
+            newWouldLike = newWouldLike.filter(e => e !== 'infos')
+          }
 
-        //   let type = newWouldLike.length > 0 ? newWouldLike[0] : ''
-        //   try {
-        //     this.$axios.post(this.strapiURL + "/api/prospects", {
-        //       data: {
-        //         type: type,
-        //         brochure: brochure,
-        //         info: info,
-        //         civilite: this.genderSelected,
-        //         interet: this.wishSelected,
-        //         nom: this.lastname,
-        //         prenom: this.firstname,
-        //         telephone: this.phone,
-        //         email: this.email,
-        //         codePostal: this.postalCode,
-        //         ville: this.city,
-        //         date: this.$moment(this.date).format('DD/MM/YYYY'),
-        //         heure: this.hourSelected,
-        //       }
-        //     })
-        //   } catch (error) {
+          let type = newWouldLike.length > 0 ? newWouldLike[0] : null
+
+          let utmSource = this.$route.query.utm_source ? this.$route.query.utm_source : 'acces_direct'
+          let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
+          let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
+          try {
+            this.$axios.post(this.strapiURL + "/api/prospects", {
+              data: {
+                type: type,
+                brochure: brochure,
+                info: info,
+                civilite: this.genderSelected,
+                interet: this.wishSelected,
+                nom: this.lastname,
+                prenom: this.firstname,
+                telephone: this.phone,
+                email: this.email,
+                codePostal: this.postalCode,
+                ville: this.city,
+                date: this.$moment(this.date).format('DD/MM/YYYY'),
+                heure: this.hourSelected,
+                utmSource: utmSource,
+                utmMedium: utmMedium,
+                utmCampagne: utmCampagne,
+                dateSoumission: this.$moment().format('DD/MM/YYYY')
+              }
+            })
+          } catch (error) {
             
-        //   }
-        //   this.$gtm.push({
-        //     event: 'conversion',
-        //     'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
-        //     'event_callback': this.callback()
-        //   })
-        // }
-        this.formSent = true
+          }
+          // this.$gtm.push({
+          //   event: 'conversion',
+          //   'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
+          //   'event_callback': this.callback()
+          // })
+          this.formSent = true
+        }
       },
 
       checkForm () {

@@ -16,12 +16,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'locale', property: 'og:locale', content: 'fr_FR'},
       { hid: 'type', property: 'og:type', content: 'website'},
-      { hid: 'site_name', property: 'og:site_name', content: 'Imagine 2050'},
+      { hid: 'site_name', property: 'og:site_name', content: 'Ki Lyon'},
       { hid: 'twitter_card', name: 'twitter_card', content: 'summary_large_image'},
-      { hid: 'robots', name:'robots', content:'noindex'}
     ],
     link: [
-      { rel: 'manifest', href: 'https://imagine2050.fr/favicon/manifest.json' },
+      { rel: 'manifest', href: 'https://ki-lyon.fr/favicon/manifest.json' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
       { rel: 'icon', type: 'image/png', sizes:'16x16', href: '/favicon/favicon-16x16.png' },
       { rel: 'icon', type: 'image/png', sizes:'32x32', href: '/favicon/favicon-32x32.png' },
