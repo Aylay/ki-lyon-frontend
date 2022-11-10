@@ -58,7 +58,7 @@
       >
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-10 justify-center mb-16">
           <p class="text-placeholder font-medium font-roboto">
-            J'aimerais : {{ wouldLikeSelected }}
+            J'aimerais :
           </p>
 
           <label
@@ -641,8 +641,8 @@
           let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
           let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
           try {
-            await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
-            // await this.$axios.$post(this.strapiURL + "/api/prospects", {
+            // await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
+            await this.$axios.$post(this.strapiURL + "/api/prospects", {
               data: {
                 type: type,
                 brochure: brochure,
@@ -739,7 +739,7 @@
             this.messageDisplay.push("Votre heure de RDV est manquante.")
           }
         }
-        
+
         if (!this.nlChecked) {
           if (this.nl === '' || !this.nl) {
             this.nlChecked = true
