@@ -91,6 +91,10 @@ export default {
     display: 'swap'
   },
 
+  axios: {
+    baseURL: process.env.STRAPI_URL
+  },
+
   sitemap: {
     path: '/sitemap.xml',
     gzip: true,
