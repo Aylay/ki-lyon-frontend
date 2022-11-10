@@ -92,7 +92,19 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.STRAPI_URL
+    baseURL: process.env.STRAPI_URL,
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.STRAPI_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.STRAPI_URL
+    }
   },
 
   sitemap: {

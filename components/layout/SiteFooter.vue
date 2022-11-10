@@ -328,7 +328,7 @@
         </div>
 
         <div
-          v-if="wouldLikeSelected.includes('infos') && wouldLikeSelected.includes('brochure')"
+          v-if="wouldLikeSelected.includes('infos') && wouldLikeSelected.includes('brochure') && !wouldLikeSelected.includes('call') && !wouldLikeSelected.includes('visio') && !wouldLikeSelected.includes('rdv')"
           class="text-center"
         >
           <p class="text-m-m lg:text-m font-robotoslab text-center mb-16">
@@ -635,7 +635,7 @@
           let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
           let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
           try {
-            this.$axios.post(this.strapiURL + "/api/prospects", {
+            await this.$axios.$post(this.strapiURL + "/api/prospects", {
               data: {
                 type: type,
                 brochure: brochure,
