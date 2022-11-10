@@ -1,0 +1,17 @@
+User-agent: *
+Disallow:
+
+User-agent: Googlebot
+Disallow:
+
+User-agent: AdsBot-Google
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow:
+
+User-agent: Googlebot-news
+Disallow:
+
+Sitemap: https://ki-lyon.fr/sitemap.xml
+Sitemap: https://ki-lyon.fr/sitemap.xml.gz
