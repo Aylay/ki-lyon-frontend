@@ -13,7 +13,8 @@ module.exports = {
       white: '#FFFFFF',
       transparent: 'transparent',
       'bleu-1': '#79B6DD',
-      'bleu-2': '#275C9B'
+      'bleu-2': '#275C9B',
+      'rouge': '#EA0C41'
     },
     fontFamily: {
       'roboto': ['Roboto', 'Arial', 'sans-serif'],

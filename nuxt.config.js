@@ -36,6 +36,9 @@ export default {
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'144x144', href: '/favicon/apple-icon-144x144.png' },
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'152x152', href: '/favicon/apple-icon-152x152.png' },
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'180x180', href: '/favicon/apple-icon-180x180.png' }
+    ],
+    script: [
+      { hid: 'didomi', src: '/didomi.js' }
     ]
   },
 
@@ -51,7 +54,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/swiper.client.js', mode: 'client' },
-
+    { src: '~/plugins/datepicker', ssr: false },
     '~/plugins/jsonld'
   ],
 
@@ -62,7 +65,8 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/dotenv',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/moment'
   ],
   
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -75,10 +79,10 @@ export default {
     'vue-scrollto/nuxt'
   ],
 
-  // gtm: {
-  //   id: 'GTM-K7MVJ2B',
-  //   scriptDefer: true
-  // },
+  gtm: {
+    id: 'GTM-K7MVJ2B',
+    scriptDefer: true
+  },
 
   googleFonts: {
     families: {
@@ -92,6 +96,11 @@ export default {
     path: '/sitemap.xml',
     gzip: true,
     hostname: process.env.SITE_URL
+  },
+
+  moment: {
+    defaultLocale: 'fr',
+    locales: ['fr']
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

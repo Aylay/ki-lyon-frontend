@@ -22,7 +22,7 @@
       </span>
     </div>
     <h1 class="my-20 lg:my-40 text-h1-m lg:text-h1 text-center font-black font-roboto uppercase">
-      Donnes personnelles
+      Données personnelles
     </h1>
     <div class="lg:px-80">
       <p class="text-s-m lg:text-s font-robotoslab">

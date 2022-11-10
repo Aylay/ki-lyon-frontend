@@ -25,9 +25,9 @@
         <p class="text-m-m lg:text-m font-robotoslab mt-8">
           Découvrez des appartements d'exception<br />en plein cœur de la Part-Dieu à Lyon.
         </p>
-        <span class="button inline-block bg-white mt-16">
+        <!-- <span class="button inline-block bg-white mt-16">
           Voir le film
-        </span>
+        </span> -->
       </div>
       <div
         class="flex absolute left-1/2 transform -translate-x-1/2 bottom-[7%] z-20 cursor-pointer justify-center items-center gap-4"

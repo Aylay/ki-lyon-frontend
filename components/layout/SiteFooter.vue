@@ -53,6 +53,8 @@
 
       <form
         action=""
+        @submit.prevent="addProspect"
+        v-if="!formSent"
       >
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-10 justify-center mb-16">
           <p class="text-placeholder font-medium font-roboto">
@@ -70,7 +72,9 @@
               :value="wouldLike.id"
               type="checkbox"
               class="absolute opacity-0 cursor-pointer h-0 w-0"
+              name="wouldLikeSelected"
               v-model="wouldLikeSelected"
+              @change="wouldLikeUpdate($event.target.value)"
             >
             <span class="text-placeholder font-roboto">{{ wouldLike.label }}</span>
             <span
@@ -135,123 +139,120 @@
           <div class="relative">
             <input
               type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
               v-model="lastname"
               id="lastname"
+              placeholder="Nom *"
             >
-            <label
-              for="lastname"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Nom *
-            </label>
           </div>
           <div class="relative">
             <input
               type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
               v-model="firstname"
               id="firstname"
+              placeholder="Prénom *"
             >
-            <label
-              for="firstname"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Prénom *
-            </label>
           </div>
           <div class="relative">
             <input
               type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
-              v-model="tel"
-              id="tel"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
+              v-model="phone"
+              id="phone"
+              placeholder="Numéro de téléphone *"
             >
-            <label
-              for="tel"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Numéro de téléphone *
-            </label>
           </div>
 
           <div class="relative">
             <input
               type="email"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
               v-model="email"
               id="email"
+              placeholder="Email *"
             >
-            <label
-              for="email"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Email *
-            </label>
           </div>
           <div class="relative">
             <input
               type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
               v-model="postalCode"
               id="postalCode"
+              placeholder="Code postal *"
             >
-            <label
-              for="postalCode"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Code Postal *
-            </label>
           </div>
           <div class="relative">
             <input
               type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
               v-model="city"
               id="city"
+              placeholder="Ville *"
             >
-            <label
-              for="city"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Ville *
-            </label>
-          </div>
-
-          <p class="text-placeholder font-medium font-roboto lg:text-center">
-            Vos disponibilités pour un RDV en visioconférence :
-          </p>
-          <div class="relative">
-            <input
-              type="email"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
-              v-model="date"
-              id="date"
-            >
-            <label
-              for="date"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Date *
-            </label>
-          </div>
-          <div class="relative">
-            <input
-              type="text"
-              class="w-full h-full border border-black border-solid rounded px-4 py-8"
-              v-model="hour"
-              id="hour"
-            >
-            <label
-              for="hour"
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-placeholder font-roboto"
-            >
-              Heure de RDV souhaitée *
-            </label>
           </div>
         </div>
 
-        <div class="flex lg:justify-center mt-8 mb-20">
+        <div
+          class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-10 items-center"
+          v-if="wouldLikeSelected.includes('visio') || wouldLikeSelected.includes('rdv') || wouldLikeSelected.includes('call')"
+        >
+          <p
+            class="text-placeholder font-medium font-roboto lg:text-center"
+            v-if="wouldLikeSelected.includes('visio')"
+          >
+            Vos disponibilités pour un RDV en visioconférence :
+          </p>
+          <p
+            class="text-placeholder font-medium font-roboto lg:text-center"
+            v-else-if="wouldLikeSelected.includes('rdv')"
+          >
+            Vos disponibilités pour un RDV en espace de vente :
+          </p>
+          <p
+            class="text-placeholder font-medium font-roboto lg:text-center"
+            v-else-if="wouldLikeSelected.includes('call')"
+          >
+            Vos disponibilités pour être rappelé :
+          </p>
+          <div
+            class="relative"
+            v-if="wouldLikeSelected.includes('visio') || wouldLikeSelected.includes('rdv')"
+          >
+            <client-only>
+              <date-picker
+                placeholder="Date *"
+                format="dd/MM/yyyy"
+                v-model="date"
+                name="date"
+                :language="fr"
+                input-class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8 bg-white"
+                calendar-class="w-full"
+                :disabledDates="disabledDates"
+              />
+            </client-only>
+          </div>
+          <div class="relative">
+            <select
+              name="hour"
+              v-model="hourSelected"
+              id="hour"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
+            >
+              <option value="">Heure de RDV souhaitée *</option>
+
+              <option
+                v-for="(hour,i) in hourOptions"
+                :key="i"
+                :value="hour"
+              >
+                {{ hour }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex lg:justify-center mt-8">
           <label
             class="block relative pl-14 lg:pl-10 cursor-pointer select-none items-center custom-checkbox"
             for="nl"
@@ -270,7 +271,19 @@
           </label>
         </div>
 
-        <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-8 lg:gap-10">
+        <div
+          class="mt-8 flex flex-col gap-2"
+          v-if="messageDisplay.length > 0"
+        >
+          <p
+            class="text-xs-m lg:text-xs font-robotoslab text-rouge text-center"
+            v-for="(message, i) in messageDisplay"
+            :key="i"
+            v-html="message"
+          />
+        </div>
+
+        <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-8 lg:gap-10 mt-20">
           <p class="text-xs-m lg:text-xs font-robotoslab">* Champs obligatoires</p>
           <div>
             <input
@@ -281,6 +294,108 @@
           </div>
         </div>
       </form>
+
+      <div v-else>
+        <p class="text-m-m lg:text-m font-semibold font-robotoslab text-center mb-4">Merci {{ genderSelected === 'femme' ? 'Madame' : 'Monsieur' }} {{ lastname }} !</p>
+        <div
+          v-if="wouldLikeSelected.includes('brochure') && !wouldLikeSelected.includes('infos') && !wouldLikeSelected.includes('call') && !wouldLikeSelected.includes('visio') && !wouldLikeSelected.includes('rdv')"
+          class="text-center"
+        >
+          <p class="text-m-m lg:text-m font-robotoslab text-center mb-16">
+            Vous pouvez maintenant télécharger la brochure en cliquant sur le bouton ci-dessous 
+          </p>
+          <a
+            href="/ki-brochure.pdf"
+            class="button text-white bg-bleu-2"
+            target="_blank"
+          >
+            <div class="flex gap-4">
+              <span>
+                Télécharger la brochure
+              </span>
+              <brochure />
+            </div>
+          </a>
+        </div>
+
+        <div
+          v-if="wouldLikeSelected.includes('infos') && !wouldLikeSelected.includes('brochure') && !wouldLikeSelected.includes('call') && !wouldLikeSelected.includes('visio') && !wouldLikeSelected.includes('rdv')"
+          class="text-center"
+        >
+          <p class="text-m-m lg:text-m font-robotoslab text-center">
+            Nous avons pris en compte votre demande d’informations et nous vous recontacterons très prochainement.
+          </p>
+        </div>
+
+        <div
+          v-if="wouldLikeSelected.includes('infos') && wouldLikeSelected.includes('brochure')"
+          class="text-center"
+        >
+          <p class="text-m-m lg:text-m font-robotoslab text-center mb-16">
+            Nous avons pris en compte votre demande d’informations. Un conseiller prendra contact avec vous dans les plus brefs délais.
+          </p>
+          <a
+            href="/ki-brochure.pdf"
+            class="button text-white bg-bleu-2"
+            target="_blank"
+          >
+            <div class="flex gap-4">
+              <span>
+                Télécharger la brochure
+              </span>
+              <brochure />
+            </div>
+          </a>
+        </div>
+
+        <div
+          v-if="wouldLikeSelected.includes('call')"
+          class="text-center"
+        >
+          <p class="text-m-m lg:text-m font-robotoslab text-center mb-16">
+            Nous avons pris en compte votre demande de rappel concernant la résidence Ki à Lyon et vous en remercions. <br />
+            Un conseiller prendra contact avec vous dans les plus brefs délais. 
+          </p>
+
+          <a
+            href="/ki-brochure.pdf"
+            class="button text-white bg-bleu-2"
+            target="_blank"
+            v-if="wouldLikeSelected.includes('brochure')"
+          >
+            <div class="flex gap-4">
+              <span>
+                Télécharger la brochure
+              </span>
+              <brochure />
+            </div>
+          </a>
+        </div>
+
+        <div
+          v-if="wouldLikeSelected.includes('visio') || wouldLikeSelected.includes('rdv')"
+          class="text-center"
+        >
+          <p class="text-m-m lg:text-m font-robotoslab text-center mb-16">
+            Nous vous recontacterons très rapidement pour vous confirmer la date et l’heure du rendez-vous. <br />
+            A bientôt !
+          </p>
+
+          <a
+            href="/ki-brochure.pdf"
+            class="button text-white bg-bleu-2"
+            target="_blank"
+            v-if="wouldLikeSelected.includes('brochure')"
+          >
+            <div class="flex gap-4">
+              <span>
+                Télécharger la brochure
+              </span>
+              <brochure />
+            </div>
+          </a>
+        </div>
+      </div>
 
       <p class="text-xs-m lg:text-xs text-black text-opacity-50 mt-20 font-robotoslab">
         Les données signalées ci-dessus par un astérisque sont nécessaires pour nous permettre de répondre à votre demande d'information. Elles sont collectées et traitées informatiquement par PITCH IMMO (société du groupe ALTAREA) uniquement sur la base de votre consentement. Pour en savoir plus sur le traitement de vos données et vos droits, consultez notre politique de protection des données.
@@ -400,10 +515,15 @@
   import Instagram from '@/assets/img/svg/instagram.svg?inline'
   import Facebook from '@/assets/img/svg/facebook.svg?inline'
   import Youtube from '@/assets/img/svg/youtube.svg?inline'
+  import Brochure from '@/assets/img/svg/brochure.svg?inline'
+
+  import { fr } from 'vuejs-datepicker/dist/locale'
 
   export default {
     data () {
       return {
+        formSent: false,
+        fr: fr,
         wouldLikeSelected: [],
         wouldLikeOptions: [
           {
@@ -451,13 +571,27 @@
         ],
         lastname: '',
         firstname: '',
-        tel: '',
+        phone: '',
         email: '',
         postalCode: '',
         city: '',
         date: '',
-        hour: '',
-        nl: ''
+        hourSelected: '',
+        hourOptions: [],
+        hourOptionsDefault: [
+          '10h00 - 11h00',
+          '11h00 - 12h00',
+          '12h00 - 13h00',
+          '13h00 - 14h00',
+          '14h00 - 15h00',
+          '15h00 - 16h00',
+          '16h00 - 17h00',
+          '17h00 - 18h00',
+        ],
+        nl: '',
+        disabledDates: {},
+        messageDisplay: [],
+        strapiURL: process.env.STRAPI_URL
       }
     },
 
@@ -466,9 +600,202 @@
       LogoPitchImmo,
       Instagram,
       Facebook,
-      Youtube
+      Youtube,
+      Brochure
+    },
+
+    mounted () {
+      const tomorrow = this.$moment().add(1, 'days').format('YYYY, MM, DD');
+
+      this.disabledDates = {
+        to: new Date(tomorrow)
+      }
+    },
+
+    methods: {
+      async addProspect () {
+        // this.checkForm()
+        // if (this.messageDisplay.length === 0) {
+        //   let newWouldLike = this.wouldLikeSelected.slice()
+        //   let brochure = false
+        //   if (this.wouldLikeSelected.includes('brochure')) {
+        //     brochure = true
+        //     newWouldLike = newWouldLike.filter(e => e !== 'brochure');
+        //   }
+          
+        //   let info = false
+        //   if (this.wouldLikeSelected.includes('infos')) {
+        //     info = true
+        //     newWouldLike = newWouldLike.filter(e => e !== 'infos')
+        //   }
+
+        //   let type = newWouldLike.length > 0 ? newWouldLike[0] : ''
+        //   try {
+        //     this.$axios.post(this.strapiURL + "/api/prospects", {
+        //       data: {
+        //         type: type,
+        //         brochure: brochure,
+        //         info: info,
+        //         civilite: this.genderSelected,
+        //         interet: this.wishSelected,
+        //         nom: this.lastname,
+        //         prenom: this.firstname,
+        //         telephone: this.phone,
+        //         email: this.email,
+        //         codePostal: this.postalCode,
+        //         ville: this.city,
+        //         date: this.$moment(this.date).format('DD/MM/YYYY'),
+        //         heure: this.hourSelected,
+        //       }
+        //     })
+        //   } catch (error) {
+            
+        //   }
+        //   this.$gtm.push({
+        //     event: 'conversion',
+        //     'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
+        //     'event_callback': this.callback()
+        //   })
+        // }
+        this.formSent = true
+      },
+
+      checkForm () {
+        this.messageDisplay = []
+
+        if (this.wouldLikeSelected.length === 0) {
+          this.messageDisplay.push("Votre souhait est manquant.")
+        }
+
+        if (this.genderSelected === '') {
+          this.messageDisplay.push("Votre civilité est manquante.")
+        }
+
+        if (this.wishSelected === '') {
+          this.messageDisplay.push("Votre intérêt est manquant.")
+        }
+
+        if (this.lastname === '') {
+          this.messageDisplay.push("Votre nom est manquant.")
+        }
+
+        if (this.firstname === '') {
+          this.messageDisplay.push("Votre prénom est manquant.")
+        }
+
+        if (this.phone === '') {
+          this.messageDisplay.push("Votre numéro de téléphone est manquant.")
+        }
+        
+        this.checkEmail()
+
+        if (this.postalCode === '') {
+          this.messageDisplay.push("Votre code postal est manquant.")
+        }
+
+        if (this.city === '') {
+          this.messageDisplay.push("Votre vile est manquante.")
+        }
+
+        if (this.message === '') {
+          this.messageDisplay.push("Votre message est manquant.")
+        }
+
+        if (this.wouldLikeSelected.includes('call') && this.hourSelected === '') {
+          this.messageDisplay.push("Votre heure de rappel est manquante.")
+        }
+
+        if (this.wouldLikeSelected.includes('visio') || this.wouldLikeSelected.includes('rdv')) {
+          if (this.date === '') {
+            this.messageDisplay.push("Votre date est manquante.")
+          }
+
+          if (this.hourSelected === '') {
+            this.messageDisplay.push("Votre heure de RDV est manquante.")
+          }
+        }
+        if (this.nl === '' || !this.nl) {
+          this.messageDisplay.push("<span class='font-bold'>Vous y êtes presque !</span> Une demande d’autorisation nécessite une validation de votre part.")
+          this.messageDisplay.push("En cochant cette case, vous nous donnez tout simplement votre consentement pour vous recontacter et surtout vous accompagner vers votre rêve de propriété.")
+        }
+      },
+
+      checkEmail (){
+        if (this.email !== '') {
+          if (!this.validEmail(this.email)) {
+            this.messageDisplay.push("Votre email semble invalide.")
+          }
+        } else {
+          this.messageDisplay.push("Votre email est manquant.")
+        }
+      },
+
+      clean () {
+        this.wouldLikeSelected = []
+        this.genderSelected = ''
+        this.wishSelected = ''
+        this.lastname = ''
+        this.firstname = ''
+        this.phone = ''
+        this.email = ''
+        this.postalCode = ''
+        this.city = ''
+        this.date = ''
+        this.hourSelected = ''
+        this.nl = ''
+      },
+
+      validEmail (email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return re.test(email)
+      },
+
+      wouldLikeUpdate (e) {
+        const callVisio = ['call', 'visio'];
+        const callRdv = ['call', 'rdv'];
+        const visioRdv = ['visio', 'rdv'];
+        const allValuesToDelete = ['call','visio', 'rdv'];
+
+        const callVisioExist = callVisio.every(val => {
+          return this.wouldLikeSelected.includes(val);
+        })
+
+        const callRdvExist = callRdv.every(val => {
+          return this.wouldLikeSelected.includes(val);
+        })
+
+        const visioRdvExist = visioRdv.every(val => {
+          return this.wouldLikeSelected.includes(val);
+        })
+
+        if (callVisioExist || callRdvExist || visioRdvExist) {
+          this.wouldLikeSelected = this.wouldLikeSelected.filter(value => !allValuesToDelete.includes(value));
+          this.wouldLikeSelected.push(e)
+        }
+
+        if (this.wouldLikeSelected.includes('call')) {
+          this.hourOptions = this.hourOptionsDefault.slice()
+        }
+
+        if (this.wouldLikeSelected.includes('visio')) {
+          this.hourOptions = this.hourOptionsDefault.slice()
+          this.hourOptions.push('18h00 - 19h00')
+          this.hourOptions.push('19h00 - 20h00')
+        }
+
+        if (this.wouldLikeSelected.includes('rdv')) {
+          this.hourOptions = this.hourOptionsDefault.slice()
+          this.hourOptions.push('18h00 - 19h00')
+        }
+      },
+
+      callback () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      }
     }
-  }
+   }
 </script>
 
 <style>
