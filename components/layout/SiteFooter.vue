@@ -6,7 +6,6 @@
           src="/img/bg-nuage.jpg"
           alt="Nuage"
           class="w-full h-full object-cover"
-          loading="lazy"
           format="webp"
         />
       </div>
@@ -441,7 +440,6 @@
             src="/img/numero.png"
             alt="Numéro vert"
             class="w-full lg:w-[267px]"
-            loading="lazy"
             format="webp"
           />
           <p class="text-xs-m lg:text-xs mt-2 font-robotoslab text-center lg:text-left">

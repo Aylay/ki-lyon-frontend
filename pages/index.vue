@@ -6,14 +6,12 @@
           src="/img/header.jpg"
           alt="Des appartements neufs d’exception à Lyon"
           class="w-full h-full object-cover hidden lg:block"
-          loading="lazy"
           format="webp"
         />
         <nuxt-img
           src="/img/header-mobile.jpg"
           alt="Des appartements neufs d’exception à Lyon"
           class="w-full h-full object-cover lg:hidden"
-          loading="lazy"
           format="webp"
         />
       </div>
@@ -58,7 +56,6 @@
                     :src="'/img/' + img.src"
                     :alt="img.alt"
                     class="w-full h-full object-cover"
-                    loading="lazy"
                     format="webp"
                   />
                 </div>
@@ -228,7 +225,6 @@
               src="/img/proprietaire-1.png"
               alt="Une réalisation unique"
               class="w-full top-[140px] sticky"
-              loading="lazy"
               format="webp"
             />
           </div>
@@ -240,7 +236,6 @@
               src="/img/proprietaire-2.png"
               alt="Un bâtiment paysage"
               class="w-full top-[140px] sticky"
-              loading="lazy"
               format="webp"
             />
           </div>
@@ -258,7 +253,6 @@
             src="/img/map.png"
             alt="Au coeur du quartier de Lyon Part-Dieu"
             class="w-full"
-            loading="lazy"
             format="webp"
           />
         </div>
@@ -297,7 +291,6 @@
               src="/img/biodivercity.png"
               alt="Label Biodivercity"
               class="w-auto max-h-16"
-              loading="lazy"
               format="webp"
             />
           </div>
@@ -311,7 +304,6 @@
               src="/img/label.png"
               alt="Label 2EC"
               class="w-auto max-h-24"
-              loading="lazy"
               format="webp"
             />
           </div>
@@ -327,7 +319,6 @@
               src="/img/nf.png"
               alt="Label NF Habitat"
               class="w-auto max-h-20"
-              loading="lazy"
               format="webp"
             />
           </div>
