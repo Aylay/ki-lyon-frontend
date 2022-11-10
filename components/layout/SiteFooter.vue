@@ -1,5 +1,45 @@
 <template>
   <div class="pb-20">
+    <div class="relative flex justify-center items-center py-32 lg:py-40 px-8">
+      <div class="absolute w-full h-full z-0">
+        <nuxt-img
+          src="/img/bg-nuage.jpg"
+          alt="Nuage"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          format="webp"
+        />
+      </div>
+      <div class="lg:text-center relative z-10">
+        <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
+          Pour nous rencontrer
+        </h3>
+        <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-4 lg:mb-16 uppercase text-white">
+          Où nous trouver
+        </h2>
+        <p class="text-s-m lg:text-s font-robotoslab text-white">
+          Espace de vente Ki<br />
+          19 Boulevard Eugène Deruelle, Lyon 3<br />
+          Du lundi au samedi de 10h à 19h
+        </p>
+        <div class="lg:flex justify-center gap-10 mt-16">
+          <a
+            href="https://goo.gl/maps/e9tCba2dSkghoSbF8"
+            target="_blank"
+            title="Se rendre à l'espace de vente Ki"
+            class="button inline-block bg-white mb-4 lg:mb-0"
+          >
+            Je m'y rends
+          </a>
+          <span
+            class="button inline-block bg-white"
+            v-scroll-to="'#contact'"
+          >
+            Je prends rendez-vous
+          </span>
+        </div>
+      </div>
+    </div>
     <div
       id="contact"
       class="bg-bleu-1 px-8 lg:px-40 pt-40 lg:pt-64 pb-24 lg:pb-32 bg-opacity-10"
@@ -324,7 +364,7 @@
 
     <div class="pt-20 px-40 flex flex-col lg:flex-row gap-4 lg:gap-10 items-center">
       <nuxt-link
-        to="#"
+        to="/donnees-personnelles"
         title="Données personnelles"
         class="text-xs-m lg:text-xs underline font-robotoslab"
       >
@@ -334,7 +374,7 @@
         |
       </span>
       <nuxt-link
-        to="#"
+        to="/politique-cookies"
         title="Politique des cookies"
         class="text-xs-m lg:text-xs underline font-robotoslab"
       >
@@ -344,7 +384,7 @@
         |
       </span>
       <nuxt-link
-        to="#"
+        to="/mentions-legales"
         title="Mentions légales"
         class="text-xs-m lg:text-xs underline font-robotoslab"
       >

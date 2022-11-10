@@ -226,7 +226,7 @@
           >
             <nuxt-img
               src="/img/proprietaire-1.png"
-              alt="Devenir proprietaire"
+              alt="Une réalisation unique"
               class="w-full top-[140px] sticky"
               loading="lazy"
               format="webp"
@@ -238,7 +238,7 @@
           >
             <nuxt-img
               src="/img/proprietaire-2.png"
-              alt="Devenir proprietaire"
+              alt="Un bâtiment paysage"
               class="w-full top-[140px] sticky"
               loading="lazy"
               format="webp"
@@ -256,7 +256,7 @@
         <div class="lg:w-1/2 order-2 lg:order-1 relative">
           <nuxt-img
             src="/img/map.png"
-            alt="Map"
+            alt="Au coeur du quartier de Lyon Part-Dieu"
             class="w-full"
             loading="lazy"
             format="webp"
@@ -295,7 +295,7 @@
           <div class="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/biodivercity.png"
-              alt="Biodivercity"
+              alt="Label Biodivercity"
               class="w-auto max-h-16"
               loading="lazy"
               format="webp"
@@ -309,7 +309,7 @@
           <div class="w-full lg:w-72 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/label.png"
-              alt="Label"
+              alt="Label 2EC"
               class="w-auto max-h-24"
               loading="lazy"
               format="webp"
@@ -325,7 +325,7 @@
           <div class="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-solid border-bleu-2 pb-8 lg:pb-0">
             <nuxt-img
               src="/img/nf.png"
-              alt="NF"
+              alt="Label NF Habitat"
               class="w-auto max-h-20"
               loading="lazy"
               format="webp"
@@ -334,47 +334,6 @@
           <p class="w-full lg:w-auto text-s-m lg:text-s font-robotoslab">
             Label de référence dans le secteur du<br />bâtiment, il garantit la performance globale<br /> des appartements pour un meilleur confort<br /> de vie (isolation sonore et thermique,<br />salubrité).
           </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="relative flex justify-center items-center py-32 lg:py-40 px-8">
-      <div class="absolute w-full h-full z-0">
-        <nuxt-img
-          src="/img/bg-nuage.jpg"
-          alt="Nuage"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          format="webp"
-        />
-      </div>
-      <div class="lg:text-center relative z-10">
-        <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
-          Pour nous rencontrer
-        </h3>
-        <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-4 lg:mb-16 uppercase text-white">
-          Où nous trouver
-        </h2>
-        <p class="text-s-m lg:text-s font-robotoslab text-white">
-          Espace de vente Ki<br />
-          19 Boulevard Eugène Deruelle, Lyon 3<br />
-          Du lundi au samedi de 10h à 19h
-        </p>
-        <div class="lg:flex justify-center gap-10 mt-16">
-          <a
-            href="https://goo.gl/maps/e9tCba2dSkghoSbF8"
-            target="_blank"
-            title="Se rendre à l'espace de vente Ki"
-            class="button inline-block bg-white mb-4 lg:mb-0"
-          >
-            Je m'y rends
-          </a>
-          <span
-            class="button inline-block bg-white"
-            v-scroll-to="'#contact'"
-          >
-            Je prends rendez-vous
-          </span>
         </div>
       </div>
     </div>
@@ -398,15 +357,15 @@
         fluxImages: [
           {
             src: 'flux-1.png',
-            alt: 'alt 1'
+            alt: 'Univers d’espace et de lumière'
           },
           {
             src: 'flux-2.png',
-            alt: 'alt 2'
+            alt: 'Un coeur végétal'
           },
           {
             src: 'flux-3.png',
-            alt: 'alt 3'
+            alt: 'Des espaces apaisants'
           }
         ],
         siteURL: process.env.SITE_URL,
