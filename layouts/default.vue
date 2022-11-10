@@ -16,6 +16,6 @@ export default {
   components: {
     SiteHeader,
     SiteFooter
-  },
+  }
 }
 </script>

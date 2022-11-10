@@ -66,6 +66,7 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/dotenv',
+    '@nuxtjs/google-fonts'
   ],
   
   // Modules: https://go.nuxtjs.dev/config-modules

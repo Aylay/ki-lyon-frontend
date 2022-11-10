@@ -59,6 +59,7 @@ module.exports = {
       'xs-m': '1rem',
       'cta1': ['2rem', '2.3rem'],
       'cta2': ['1.4rem', '1.6rem'],
+      'placeholder': ['1.6rem', '2.5rem']
     },
     extend: {
       maxWidth: {

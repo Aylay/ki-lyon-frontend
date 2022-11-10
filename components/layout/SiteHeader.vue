@@ -39,6 +39,7 @@
         <div
           v-scroll-to="'#contact'"
           class="button text-white bg-bleu-2 mb-8 lg:mb-0 mt-24 lg:mt-0"
+          @click="openMenu"
         >
           <div class="flex gap-4">
             <span>
@@ -50,6 +51,7 @@
         <div
           v-scroll-to="'#contact'"
           class="button text-white bg-bleu-2"
+          @click="openMenu"
         >
           <div class="flex gap-4">
             <span>
