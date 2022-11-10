@@ -1,9 +1,3 @@
-// eslint-disable-next-line nuxt/no-cjs-in-config
-const axios = require('axios')
-const urlExclude = [
-  
-]
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
@@ -57,6 +51,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/swiper.client.js', mode: 'client' },
+
     '~/plugins/jsonld'
   ],
 
@@ -73,7 +68,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/svg',
-    // '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
     '@nuxtjs/gtm',
     '@nuxt/image',
     '@nuxtjs/axios',
@@ -93,23 +88,10 @@ export default {
     display: 'swap'
   },
 
-  // image: {
-  //   domains: ['admin.imagine2050.fr'],
-  //   provider: 'static',
-  // },
-
-  axios: {
-  },
-
-  // sitemap: {
-  //   path: '/sitemap.xml',
-  //   gzip: true,
-  //   exclude: urlExclude,
-  //   hostname: process.env.SITE_URL,
-  // },
-
-  markdownit: {
-    runtime: true
+  sitemap: {
+    path: '/sitemap.xml',
+    gzip: true,
+    hostname: process.env.SITE_URL
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
