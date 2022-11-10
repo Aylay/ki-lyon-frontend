@@ -305,7 +305,7 @@
             Vous pouvez maintenant télécharger la brochure en cliquant sur le bouton ci-dessous 
           </p>
           <a
-            href="/ki-brochure.pdf"
+            href="/Ki-brochure.pdf"
             class="button text-white bg-bleu-2"
             target="_blank"
           >
@@ -335,7 +335,7 @@
             Nous avons pris en compte votre demande d’informations. Un conseiller prendra contact avec vous dans les plus brefs délais.
           </p>
           <a
-            href="/ki-brochure.pdf"
+            href="/Ki-brochure.pdf"
             class="button text-white bg-bleu-2"
             target="_blank"
           >
@@ -358,7 +358,7 @@
           </p>
 
           <a
-            href="/ki-brochure.pdf"
+            href="/Ki-brochure.pdf"
             class="button text-white bg-bleu-2"
             target="_blank"
             v-if="wouldLikeSelected.includes('brochure')"
@@ -382,7 +382,7 @@
           </p>
 
           <a
-            href="/ki-brochure.pdf"
+            href="/Ki-brochure.pdf"
             class="button text-white bg-bleu-2"
             target="_blank"
             v-if="wouldLikeSelected.includes('brochure')"
