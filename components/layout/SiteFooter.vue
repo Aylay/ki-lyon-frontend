@@ -19,7 +19,8 @@
         <p class="text-s-m lg:text-s font-robotoslab text-white">
           Espace de vente Ki<br />
           19 Boulevard Eugène Deruelle, Lyon 3<br />
-          Du lundi au samedi de 10h à 19h
+          Ouverture dès le lundi 14 novembre de 14h à 19h<br /> 
+          du mardi au samedi de 9h à 19h
         </p>
         <div class="lg:flex justify-center gap-10 mt-16">
           <a
@@ -57,7 +58,7 @@
       >
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-10 justify-center mb-16">
           <p class="text-placeholder font-medium font-roboto">
-            J'aimerais :
+            J'aimerais : {{ wouldLikeSelected }}
           </p>
 
           <label
@@ -428,7 +429,8 @@
           <p class="text-xs-m lg:text-xs font-robotoslab">
             Espace de vente Ki<br />
             19 Boulevard Eugène Deruelle, Lyon 3<br />
-            Du lundi au samedi de 10h à 19h
+            Ouverture dès le lundi 14 novembre de 14h à 19h<br /> 
+            du mardi au samedi de 9h à 19h
           </p>
         </div>
         <a
@@ -589,7 +591,8 @@
         nl: '',
         disabledDates: {},
         messageDisplay: [],
-        strapiURL: process.env.STRAPI_URL
+        strapiURL: process.env.STRAPI_URL,
+        nlChecked: false
       }
     },
 
@@ -603,7 +606,12 @@
     },
 
     mounted () {
-      const tomorrow = this.$moment().add(1, 'days').format('YYYY, MM, DD');
+      let tomorrow
+      if (this.$moment().isBefore('2022-11-14')) {
+        tomorrow = '2022, 11, 14'
+      } else {
+        tomorrow = this.$moment().add(1, 'days').format('YYYY, MM, DD');
+      }
 
       this.disabledDates = {
         to: new Date(tomorrow)
@@ -652,7 +660,8 @@
                 utmSource: utmSource,
                 utmMedium: utmMedium,
                 utmCampagne: utmCampagne,
-                dateSoumission: this.$moment().format('DD/MM/YYYY')
+                dateSoumission: this.$moment().format('DD/MM/YYYY'),
+                nl: this.nl ? this.nl : false
               }
             })
           } catch (error) {
@@ -730,9 +739,13 @@
             this.messageDisplay.push("Votre heure de RDV est manquante.")
           }
         }
-        if (this.nl === '' || !this.nl) {
-          this.messageDisplay.push("<span class='font-bold'>Vous y êtes presque !</span> Une demande d’autorisation nécessite une validation de votre part.")
-          this.messageDisplay.push("En cochant cette case, vous nous donnez tout simplement votre consentement pour vous recontacter et surtout vous accompagner vers votre rêve de propriété.")
+        
+        if (!this.nlChecked) {
+          if (this.nl === '' || !this.nl) {
+            this.nlChecked = true
+            this.messageDisplay.push("<span class='font-bold'>Vous y êtes presque !</span> Une demande d’autorisation nécessite une validation de votre part.")
+            this.messageDisplay.push("En cochant cette case, vous nous donnez tout simplement votre consentement pour vous recontacter et surtout vous accompagner vers votre rêve de propriété.")
+          }
         }
       },
 
@@ -810,8 +823,17 @@
           window.location = url;
         }
       }
+    },
+
+    beforeMount () {
+    },
+
+    beforeDestroy () {
+      this.$bus.$off('dl-brochure', (menuOpened) => {
+        this.menuOpened = menuOpened
+      })
     }
-   }
+  }
 </script>
 
 <style>
