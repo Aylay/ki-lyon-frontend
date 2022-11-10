@@ -80,7 +80,7 @@ export default {
   ],
 
   // gtm: {
-  //   id: 'AW-10785325481',
+  //   id: 'GTM-K7MVJ2B',
   //   scriptDefer: true
   // },
 

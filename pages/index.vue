@@ -45,7 +45,7 @@
       class="pt-24 lg:pt-48"
     >
       <div class="px-8 lg:px-56">
-        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:pr-20 mb-60">
+        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:pr-20 mb-12 lg:mb-60">
           <div class="lg:w-1/2 order-2 lg:order-1 relative">
             <div class="swiper-1 w-full overflow-hidden relative">
               <div class="swiper-wrapper">
@@ -144,6 +144,10 @@
               Paris, Marseille<br />
               et Genève à 2h par<br />
               le train*
+
+              <span class="block text-xs-m lg:text-xsm text-black text-opacity-50 font-robotoslab mt-2">
+                * Source Google Maps
+              </span>
             </p>
           </div>
           <div class="flex gap-16 items-center">
@@ -240,9 +244,9 @@
               format="webp"
             />
           </div>
-          <span class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto">
+          <!-- <span class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto">
             Voir les perspectives
-          </span>
+          </span> -->
         </div>
       </div>
     </div>
@@ -448,12 +452,14 @@
         const heightOwnerDivHeight = document.getElementById("owner").clientHeight
         const middleOwnerDiv = heightOwnerDivTop + heightOwnerDivHeight / 8
 
-        if (scrollY >= middleOwnerDiv) {
-          document.getElementById("owner1").classList.add('opacity-0')
-          document.getElementById("owner2").classList.remove('opacity-0')
-        } else {
-          document.getElementById("owner2").classList.add('opacity-0')
-          document.getElementById("owner1").classList.remove('opacity-0')
+        if (window.innerWidth > 1023) {
+          if (scrollY >= middleOwnerDiv) {
+            document.getElementById("owner1").classList.add('opacity-0')
+            document.getElementById("owner2").classList.remove('opacity-0')
+          } else {
+            document.getElementById("owner2").classList.add('opacity-0')
+            document.getElementById("owner1").classList.remove('opacity-0')
+          }
         }
       }
     },

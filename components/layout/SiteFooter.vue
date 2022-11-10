@@ -256,13 +256,6 @@
       </h2>
     </div> -->
 
-    <div class="pt-32 lg:pt-40 px-8 lg:px-40">
-      <p class="text-xs-m lg:text-xsm text-black text-opacity-50 font-robotoslab">
-        Mentions légales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis tortor dolor sed lobortis tortor velit sed. Semper sagittis praesent elit, varius. Non cursus praesent faucibus proin. Condimentum vulputate aenean odio nullam magna morbi. Consectetur lacus egestas egestas sed egestas eleifend lorem orci. Turpis pharetra massa, gravida integer amet, bibendum ullamcorper. Libero, tristique viverra interdum magna. Venenatis est netus auctor quam. Sit ac elementum dolor, facilisis. Consectetur duis tellus faucibus purus pellentesque neque, nullam tortor at. Porttitor nisl velit est eros eget ultricies nisl. Consequat feugiat quis faucibus molestie lacus ut vitae. Id interdum sed turpis non pretium. Sapien pellentesque bibendum erat proin. Nascetur tempus, adipiscing turpis pretium viverra turpis est adipiscing.
-        Molestie porttitor fames sed leo arcu nulla fusce nam. Eu non nibh feugiat senectus metus, risus a cras. Morbi sit duis fermentum feugiat pretium quis iaculis libero. A tincidunt pharetra, nam lectus tincidunt eget justo. Nulla sed et, et tincidunt id. Molestie sed proin tempus nec turpis. At cursus facilisis at molestie sit mattis. Urna consectetur blandit cras dignissim vel. Mattis tincidunt ultrices non tortor in. Aliquet eu egestas enim feugiat aliquam lorem nibh. Ipsum at dignissim pellentesque scelerisque porttitor lacus, facilisis. Tempus sit dictum a senectus non nunc magna blandit.
-      </p>
-    </div>
-
     <div class="px-40 relative before:content-[] before:absolute before:w-full before:h-px before:top-1/2 before:bg-black before:bg-opacity-10 before:left-0 mt-20 flex justify-center lg:justify-end before:z-0">
       <div
         class="w-24 h-24 relative z-10 bg-white border border-solid border-black border-opacity-10 rounded-full flex justify-center items-center cursor-pointer"
