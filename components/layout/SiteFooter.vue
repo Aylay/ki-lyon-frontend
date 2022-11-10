@@ -660,11 +660,18 @@
           } catch (error) {
             
           }
-          // this.$gtm.push({
-          //   event: 'conversion',
-          //   'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
-          //   'event_callback': this.callback()
-          // })
+          
+          this.$gtm.push({
+            event: 'conversion',
+            'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
+            'event_callback': this.callback()
+          })
+          
+          const script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "/tiktok.js";
+          document.head.appendChild(script);
+
           this.formSent = true
         }
       },
