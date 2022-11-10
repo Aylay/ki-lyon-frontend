@@ -660,7 +660,9 @@
           } catch (error) {
             
           }
-          
+
+          this.$scrollTo('#contact')
+
           this.$gtm.push({
             event: 'conversion',
             'send_to': 'AW-10785325481/a9WHCLyQuP4CEKmD7JYo',
