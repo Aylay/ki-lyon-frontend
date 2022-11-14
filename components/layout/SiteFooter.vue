@@ -155,13 +155,12 @@
             >
           </div>
           <div class="relative">
-            <input
-              type="text"
-              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
+            <vue-tel-input
               v-model="phone"
-              id="phone"
-              placeholder="Numéro de téléphone *"
-            >
+              defaultCountry='FR'
+              :inputOptions='phoneInputOptions'
+              styleClasses="custom-vue-tel-input"
+            ></vue-tel-input>
           </div>
 
           <div class="relative">
@@ -520,6 +519,13 @@
   import { fr } from 'vuejs-datepicker/dist/locale'
 
   export default {
+    props: {
+      needBrochureChecked: {
+        type: Boolean,
+        default: () => true
+      }
+    },
+
     data () {
       return {
         formSent: false,
@@ -547,7 +553,7 @@
             label: 'Prendre RDV en espace de vente'
           }
         ],
-        genderSelected: '',
+        genderSelected: 'madame',
         genderOptions: [
           {
             id: 'madame',
@@ -558,7 +564,7 @@
             label: 'M.'
           }
         ],
-        wishSelected: '',
+        wishSelected: 'habiter',
         wishOptions: [
           {
             id: 'habiter',
@@ -592,7 +598,18 @@
         disabledDates: {},
         messageDisplay: [],
         strapiURL: process.env.STRAPI_URL,
-        nlChecked: false
+        nlChecked: false,
+        phoneInputOptions: {
+          placeholder: 'Numéro de téléphone *',
+          id: 'phone'
+        },
+      }
+    },
+
+    watch: {
+      needBrochureChecked () {
+        document.getElementById('brochure').checked = true
+        this.wouldLikeSelected.push('brochure')
       }
     },
 
@@ -641,8 +658,8 @@
           let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
           let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
           try {
-            await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
-            // await this.$axios.$post(this.strapiURL + "/api/prospects", {
+            // await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
+            await this.$axios.$post(this.strapiURL + "/api/prospects", {
               data: {
                 type: type,
                 brochure: brochure,
@@ -707,11 +724,9 @@
         if (this.firstname === '') {
           this.messageDisplay.push("Votre prénom est manquant.")
         }
-
-        if (this.phone === '') {
-          this.messageDisplay.push("Votre numéro de téléphone est manquant.")
-        }
         
+        this.checkPhone()
+
         this.checkEmail()
 
         if (this.postalCode === '') {
@@ -749,6 +764,16 @@
         }
       },
 
+      checkPhone (){
+        if (this.phone !== '') {
+          if (!this.validPhone(this.phone)) {
+            this.messageDisplay.push("Votre numéro de téléphone semble invalide.")
+          }
+        } else {
+          this.messageDisplay.push("Votre numéro de téléphone est manquant.")
+        }
+      },
+
       checkEmail (){
         if (this.email !== '') {
           if (!this.validEmail(this.email)) {
@@ -777,6 +802,12 @@
       validEmail (email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         return re.test(email)
+      },
+
+      validPhone (phone) {
+        const re = /^([0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2})$/
+        return re.test(phone)
+        
       },
 
       wouldLikeUpdate (e) {
@@ -842,5 +873,12 @@
 }
 .custom-checkbox input:checked ~ span:not(.checkmark) {
   @apply font-medium;
+}
+
+.vue-tel-input.custom-vue-tel-input {
+ @apply w-full text-placeholder font-roboto h-full border border-black border-solid rounded p-0 bg-white focus-within:border-black focus-within:shadow-none;
+}
+.vue-tel-input.custom-vue-tel-input .vti__input {
+ @apply px-4 py-[1.7rem];
 }
 </style>

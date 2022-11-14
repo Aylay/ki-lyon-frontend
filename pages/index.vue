@@ -359,7 +359,7 @@
             alt: 'Des espaces apaisants'
           }
         ],
-        siteURL: process.env.SITE_URL,
+        siteURL: process.env.SITE_URL
       }
     },
 

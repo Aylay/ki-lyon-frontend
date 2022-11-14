@@ -39,7 +39,7 @@
         <div
           v-scroll-to="'#contact'"
           class="button text-white bg-bleu-2 mb-8 lg:mb-0 mt-24 lg:mt-0"
-          @click="openMenu"
+          @click="openMenu(); $emit('needBrochure');"
         >
           <div class="flex gap-4">
             <span>
@@ -51,7 +51,7 @@
         <div
           v-scroll-to="'#contact'"
           class="button text-white bg-bleu-2"
-          @click="openMenu"
+          @click="openMenu();"
         >
           <div class="flex gap-4">
             <span>
@@ -89,7 +89,7 @@
         this.menuOpened = !this.menuOpened
         this.isScrolling = !this.isScrolling
         document.body.classList.toggle('mod')
-      },
+      }
     }
   }
 </script>

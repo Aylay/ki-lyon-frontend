@@ -54,7 +54,8 @@ export default {
   plugins: [
     { src: '~/plugins/swiper.client.js', mode: 'client' },
     { src: '~/plugins/datepicker', ssr: false },
-    '~/plugins/jsonld'
+    '~/plugins/jsonld',
+    '~/plugins/phone',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
