@@ -401,14 +401,7 @@
       </p>
     </div>
 
-    <!-- <div class="pt-32 lg:pt-64 px-8 lg:px-40">
-      <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black lg:text-center">
-        Foire aux questions
-      </h3>
-      <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-16 uppercase lg:text-center">
-        Tout savoir sur les programmes immobiliers neufs
-      </h2>
-    </div> -->
+    <qas v-if="this.$route.fullPath === '/'" />
 
     <div class="px-40 relative before:content-[] before:absolute before:w-full before:h-px before:top-1/2 before:bg-black before:bg-opacity-10 before:left-0 mt-20 flex justify-center lg:justify-end before:z-0">
       <div
@@ -516,6 +509,8 @@
   import Youtube from '@/assets/img/svg/youtube.svg?inline'
   import Brochure from '@/assets/img/svg/brochure.svg?inline'
 
+  import Qas from '@/components/Qas'
+
   import { fr } from 'vuejs-datepicker/dist/locale'
 
   export default {
@@ -603,6 +598,7 @@
           placeholder: 'Numéro de téléphone *',
           id: 'phone'
         },
+        postalCodeOptions: ['op1', 'op2', 'op3']
       }
     },
 
@@ -619,7 +615,8 @@
       Instagram,
       Facebook,
       Youtube,
-      Brochure
+      Brochure,
+      Qas
     },
 
     mounted () {
