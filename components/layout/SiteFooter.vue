@@ -658,8 +658,8 @@
           let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
           let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
           try {
-            // await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
-            await this.$axios.$post(this.strapiURL + "/api/prospects", {
+            await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
+            // await this.$axios.$post(this.strapiURL + "/api/prospects", {
               data: {
                 type: type,
                 brochure: brochure,
