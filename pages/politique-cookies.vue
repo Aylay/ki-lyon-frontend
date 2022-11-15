@@ -156,7 +156,7 @@
 
         Conformément aux lignes directrices et à la recommandation de la CNIL en la matière, votre consentement est collecté au moyen d’une plateforme accessible, lors de votre première connexion à notre Site. <br /><br />
 
-        Vous pouvez également retirer votre consentement au dépôt de tout ou partie des Cookies à tout moment grâce à un bouton intitulé Gestion cookies figurant en bas à gauche sur toutes les pages du Site, et également accessible en cliquant XXXX à fournir à la suite du création du bandeau.<br /><br />
+        Vous pouvez également retirer votre consentement au dépôt de tout ou partie des Cookies à tout moment grâce à un bouton intitulé Gestion cookies figurant en bas à gauche sur toutes les pages du Site, et également accessible en <a href="javascript:Didomi.preferences.show()" class="underline">cliquant ici</a>.<br /><br />
 
         Cette plateforme vous permet : 
       </p>
