@@ -35,9 +35,6 @@ export default {
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'144x144', href: '/favicon/apple-icon-144x144.png' },
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'152x152', href: '/favicon/apple-icon-152x152.png' },
       { rel: 'apple-touch-icon', type: 'image/png', sizes:'180x180', href: '/favicon/apple-icon-180x180.png' }
-    ],
-    script: [
-      { hid: 'didomi', src: '/didomi.js' }
     ]
   },
 
