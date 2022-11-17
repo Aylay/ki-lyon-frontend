@@ -226,8 +226,11 @@
                 name="date"
                 :language="fr"
                 input-class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8 bg-white"
-                calendar-class="w-full"
+                calendar-class="!w-full"
                 :disabledDates="disabledDates"
+                :monday-first="true"
+                :full-month-name="true"
+                @selected="pickedADate($event)"
               />
             </client-only>
           </div>
@@ -236,7 +239,8 @@
               name="hour"
               v-model="hourSelected"
               id="hour"
-              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8"
+              class="w-full text-placeholder font-roboto h-full border border-black border-solid rounded px-4 py-8 disabled:opacity-25 transition-opacity"
+              :disabled="hourAvailable ? false : true"
             >
               <option value="">Heure de RDV souhaitée *</option>
 
@@ -579,16 +583,6 @@
         date: '',
         hourSelected: '',
         hourOptions: [],
-        hourOptionsDefault: [
-          '10h00 - 11h00',
-          '11h00 - 12h00',
-          '12h00 - 13h00',
-          '13h00 - 14h00',
-          '14h00 - 15h00',
-          '15h00 - 16h00',
-          '16h00 - 17h00',
-          '17h00 - 18h00',
-        ],
         nl: '',
         disabledDates: {},
         messageDisplay: [],
@@ -598,7 +592,8 @@
           placeholder: 'Numéro de téléphone *',
           id: 'phone'
         },
-        postalCodeOptions: ['op1', 'op2', 'op3']
+        postalCodeOptions: ['op1', 'op2', 'op3'],
+        hourAvailable: false
       }
     },
 
@@ -620,15 +615,11 @@
     },
 
     mounted () {
-      let tomorrow
-      if (this.$moment().isBefore('2022-11-14')) {
-        tomorrow = '2022, 11, 14'
-      } else {
-        tomorrow = this.$moment().add(1, 'days').format('YYYY, MM, DD');
-      }
+      const tomorrow =this.$moment().add(1, 'days').format('YYYY, MM, DD');
 
       this.disabledDates = {
-        to: new Date(tomorrow)
+        to: new Date(tomorrow),
+        days: [0]
       }
     },
 
@@ -812,6 +803,7 @@
         const callRdv = ['call', 'rdv'];
         const visioRdv = ['visio', 'rdv'];
         const allValuesToDelete = ['call','visio', 'rdv'];
+        this.hourOptions = []
 
         const callVisioExist = callVisio.every(val => {
           return this.wouldLikeSelected.includes(val);
@@ -831,18 +823,138 @@
         }
 
         if (this.wouldLikeSelected.includes('call')) {
-          this.hourOptions = this.hourOptionsDefault.slice()
+          this.hourAvailable = true
+          this.hourOptions = [
+            '10h00 - 11h00',
+            '11h00 - 12h00',
+            '12h00 - 13h00',
+            '13h00 - 14h00',
+            '14h00 - 15h00',
+            '15h00 - 16h00',
+            '16h00 - 17h00',
+            '17h00 - 18h00',
+          ]
         }
-
+        
         if (this.wouldLikeSelected.includes('visio')) {
-          this.hourOptions = this.hourOptionsDefault.slice()
-          this.hourOptions.push('18h00 - 19h00')
-          this.hourOptions.push('19h00 - 20h00')
+          if (this.date === '') {
+            this.hourAvailable = false
+          } else {
+            if (this.$moment(this.date).weekday() === 0) {
+              this.hourOptions = [
+                '14h00 - 15h00',
+                '15h00 - 16h00',
+                '16h00 - 17h00',
+                '17h00 - 18h00',
+                '18h00 - 19h00',
+                '19h00 - 20h00'
+              ]
+            } else {
+              this.hourOptions = [
+                '10h00 - 11h00',
+                '11h00 - 12h00',
+                '12h00 - 13h00',
+                '13h00 - 14h00',
+                '14h00 - 15h00',
+                '15h00 - 16h00',
+                '16h00 - 17h00',
+                '17h00 - 18h00',
+                '18h00 - 19h00',
+                '19h00 - 20h00'
+              ]
+            }
+          }
         }
 
         if (this.wouldLikeSelected.includes('rdv')) {
-          this.hourOptions = this.hourOptionsDefault.slice()
-          this.hourOptions.push('18h00 - 19h00')
+          if (this.date === '') {
+            this.hourAvailable = false
+          } else {
+            if (this.$moment(this.date).weekday() === 0) {
+              this.hourOptions = [
+                '14h00 - 15h00',
+                '15h00 - 16h00',
+                '16h00 - 17h00',
+                '17h00 - 18h00',
+                '18h00 - 19h00'
+              ]
+            } else {
+              this.hourOptions = [
+                '10h00 - 11h00',
+                '11h00 - 12h00',
+                '12h00 - 13h00',
+                '13h00 - 14h00',
+                '14h00 - 15h00',
+                '15h00 - 16h00',
+                '16h00 - 17h00',
+                '17h00 - 18h00',
+                '18h00 - 19h00'
+              ]
+            }
+          }
+        }
+      },
+
+      pickedADate (e) {
+        if (e.length) {
+          this.hourAvailable = false
+          return
+        }
+
+        this.hourAvailable = true
+        if (this.wouldLikeSelected.includes('visio')) {
+          if (this.$moment(e).weekday() === 0) {
+            this.hourOptions = [
+              '14h00 - 15h00',
+              '15h00 - 16h00',
+              '16h00 - 17h00',
+              '17h00 - 18h00',
+              '18h00 - 19h00',
+              '19h00 - 20h00'
+            ]
+          } else {
+            this.hourOptions = [
+              '10h00 - 11h00',
+              '11h00 - 12h00',
+              '12h00 - 13h00',
+              '13h00 - 14h00',
+              '14h00 - 15h00',
+              '15h00 - 16h00',
+              '16h00 - 17h00',
+              '17h00 - 18h00',
+              '18h00 - 19h00',
+              '19h00 - 20h00'
+            ]
+          }
+        }
+
+        if (this.wouldLikeSelected.includes('rdv')) {
+          if (this.$moment(e).weekday() === 0) {
+            this.hourOptions = [
+              '14h00 - 15h00',
+              '15h00 - 16h00',
+              '16h00 - 17h00',
+              '17h00 - 18h00',
+              '18h00 - 19h00'
+            ]
+          } else {
+            this.hourOptions = [
+              '10h00 - 11h00',
+              '11h00 - 12h00',
+              '12h00 - 13h00',
+              '13h00 - 14h00',
+              '14h00 - 15h00',
+              '15h00 - 16h00',
+              '16h00 - 17h00',
+              '17h00 - 18h00',
+              '18h00 - 19h00'
+            ]
+          }
+        }
+
+        if (this.hourSelected.length && !this.hourOptions.includes(this.hourSelected)) {
+          this.hourSelected = ''
+          document.getElementById('hour').value = ''
         }
       },
 
