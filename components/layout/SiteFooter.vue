@@ -836,37 +836,7 @@
           ]
         }
         
-        if (this.wouldLikeSelected.includes('visio')) {
-          if (this.date === '') {
-            this.hourAvailable = false
-          } else {
-            if (this.$moment(this.date).weekday() === 0) {
-              this.hourOptions = [
-                '14h00 - 15h00',
-                '15h00 - 16h00',
-                '16h00 - 17h00',
-                '17h00 - 18h00',
-                '18h00 - 19h00',
-                '19h00 - 20h00'
-              ]
-            } else {
-              this.hourOptions = [
-                '10h00 - 11h00',
-                '11h00 - 12h00',
-                '12h00 - 13h00',
-                '13h00 - 14h00',
-                '14h00 - 15h00',
-                '15h00 - 16h00',
-                '16h00 - 17h00',
-                '17h00 - 18h00',
-                '18h00 - 19h00',
-                '19h00 - 20h00'
-              ]
-            }
-          }
-        }
-
-        if (this.wouldLikeSelected.includes('rdv')) {
+        if (this.wouldLikeSelected.includes('visio') || this.wouldLikeSelected.includes('rdv')) {
           if (this.date === '') {
             this.hourAvailable = false
           } else {
@@ -902,33 +872,7 @@
         }
 
         this.hourAvailable = true
-        if (this.wouldLikeSelected.includes('visio')) {
-          if (this.$moment(e).weekday() === 0) {
-            this.hourOptions = [
-              '14h00 - 15h00',
-              '15h00 - 16h00',
-              '16h00 - 17h00',
-              '17h00 - 18h00',
-              '18h00 - 19h00',
-              '19h00 - 20h00'
-            ]
-          } else {
-            this.hourOptions = [
-              '10h00 - 11h00',
-              '11h00 - 12h00',
-              '12h00 - 13h00',
-              '13h00 - 14h00',
-              '14h00 - 15h00',
-              '15h00 - 16h00',
-              '16h00 - 17h00',
-              '17h00 - 18h00',
-              '18h00 - 19h00',
-              '19h00 - 20h00'
-            ]
-          }
-        }
-
-        if (this.wouldLikeSelected.includes('rdv')) {
+        if (this.wouldLikeSelected.includes('visio') || this.wouldLikeSelected.includes('rdv')) {
           if (this.$moment(e).weekday() === 0) {
             this.hourOptions = [
               '14h00 - 15h00',
