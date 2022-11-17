@@ -29,12 +29,12 @@
             format="webp"
             loading="lazy"
           />
-          <div class="lg:px-40 w-full h-40 flex lg:border-t border-solid border-black border-opacity-10 lg:mt-40 justify-center items-center">
+          <div class="lg:px-40 w-full h-40 flex lg:mt-40 justify-center items-center">
             <p class="text-s-m lg:text-s font-robotoslab max-w-7xl">{{ img.title }}</p>
           </div>
         </div>
       </div>
-      <div class="absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-40 px-8 lg:px-40 z-10">
+      <div class="lg:absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-40 px-8 lg:px-40 z-10 border-t border-solid border-black border-opacity-10 ">
         <div class="swiper-2-button-next flex gap-4 items-center cursor-pointer">
           <arrow-left-right />
           <span class="uppercase text-cta2 font-roboto">Précédente</span>
