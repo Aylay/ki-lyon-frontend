@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed w-full h-screen bg-white inset-0 z-50 flex justify-center items-center lg:block">
+  <div class="fixed w-full h-screen bg-white inset-0 z-50 flex sm:block justify-center items-center lg:block">
     <div class="absolute top-8 lg:top-52 right-8 lg:right-52 z-20">
       <span
         class="button inline-block bg-white see-more"
@@ -15,7 +15,7 @@
         </div>
       </span>
     </div>
-    <div class="swiper-2 w-full overflow-hidden lg:relative z-1 pt-0 lg:pt-40 pb-0 lg:pb-40">
+    <div class="swiper-2 w-full overflow-hidden lg:relative z-10 pt-0 lg:pt-40 pb-0 lg:pb-40">
       <div class="swiper-wrapper lg:relative z-10">
         <div
           v-for="(img, i) in perspectives"
@@ -25,16 +25,16 @@
           <nuxt-img
             :src="'/img/' + img.src"
             :alt="img.alt"
-            class="w-auto max-h-[calc(100vh-300px)] mx-auto"
+            class="w-auto max-h-[calc(100vh-100px)] lg:max-h-[calc(100vh-300px)] mx-auto"
             format="webp"
             loading="lazy"
           />
-          <div class="lg:px-40 w-full h-40 flex lg:mt-40 justify-center items-center">
+          <div class="lg:px-40 w-full h-24 lg:h-40 flex lg:mt-40 justify-center items-center">
             <p class="text-s-m lg:text-s font-robotoslab max-w-7xl">{{ img.title }}</p>
           </div>
         </div>
       </div>
-      <div class="lg:absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-40 px-8 lg:px-40 z-10 border-t border-solid border-black border-opacity-10 ">
+      <div class="sm:absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-24 lg:h-40 px-8 lg:px-40 z-10 lg:border-t border-solid border-black border-opacity-10 ">
         <div class="swiper-2-button-next flex gap-4 items-center cursor-pointer">
           <arrow-left-right />
           <span class="uppercase text-cta2 font-roboto">Précédente</span>
