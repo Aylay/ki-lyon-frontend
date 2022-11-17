@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="sm:absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-24 lg:h-40 px-8 lg:px-40 z-10 lg:border-t border-solid border-black border-opacity-10 ">
+      <div class="sm:absolute w-full left-0 right-0 bottom-0 lg:bottom-40 flex justify-between items-center h-24 lg:h-40 px-8 lg:px-40 z-10 lg:border-t border-solid border-black border-opacity-10">
         <div class="swiper-2-button-next flex gap-4 items-center cursor-pointer">
           <arrow-left-right />
           <span class="uppercase text-cta2 font-roboto">Précédente</span>

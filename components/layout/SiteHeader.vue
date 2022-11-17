@@ -1,6 +1,6 @@
 <template>
   <header class="sticky top-0 left-0 z-40 bg-white lg:border-b border-solid border-black border-opacity-10">
-    <div class="max-w-1512px mx-auto flex justify-between items-center py-10 px-8 lg:px-40 border-b lg:border-b-0 border-solid border-black border-opacity-10">
+    <div class="max-w-1512px mx-auto flex justify-between lg:justify-start gap-20 items-center py-10 px-8 lg:px-40 border-b lg:border-b-0 border-solid border-black border-opacity-10">
       <div class="flex gap-40">
         <nuxt-link
           to="/"
@@ -33,31 +33,56 @@
         </svg>
       </div>
       <div
-        class="lg:flex gap-8 lg:gap-6 absolute top-full lg:top-auto lg:relative w-full lg:w-auto left-0 lg:left-auto px-8 lg:px-0 bg-white lg:bg-transparent transition-all duration-300 lg:opacity-100 h-full-header-m lg:h-auto lg:max-h-[none] lg:overflow-auto"
+        class="absolute top-full lg:top-auto lg:relative w-full lg:w-auto left-0 lg:left-auto px-8 lg:px-0 bg-white lg:bg-transparent transition-all duration-300 lg:opacity-100 h-full-header-m lg:h-auto lg:max-h-[none] lg:overflow-auto lg:flex flex-1 justify-between items-center"
         :class="menuOpened === true ? 'max-h-none overflow-auto opacity-100' : 'max-h-0 overflow-hidden opacity-0'"
       >
-        <div
-          v-scroll-to="'#contact'"
-          class="button text-white bg-bleu-2 mb-8 lg:mb-0 mt-24 lg:mt-0"
-          @click="openMenu(); $emit('needBrochure');"
-        >
-          <div class="flex gap-4">
-            <span>
-              Télécharger la brochure
-            </span>
-            <brochure />
+        <ul class="flex flex-col lg:flex-row gap-6 mt-24 lg:mt-0">
+          <li class="border-b lg:border-0 border-solid border-black">
+            <nuxt-link
+              class="text-cta1 font-roboto block py-6 lg:py-0"
+              to="/quartier"
+              title="Le quartier Ki"
+            >
+              Le quartier
+            </nuxt-link>
+          </li>
+          <!-- <li class="text-cta1 font-roboto hidden lg:block">
+            |
+          </li>
+          <li>
+            <nuxt-link
+              class="text-cta1 font-roboto block"
+              to="/appartements"
+              title="Les appartements Ki"
+            >
+            Les appartements
+            </nuxt-link>
+          </li> -->
+        </ul>
+        <div class="lg:flex gap-8 lg:gap-6">
+          <div
+            v-scroll-to="'#contact'"
+            class="button text-white bg-bleu-2 mb-8 lg:mb-0 mt-24 lg:mt-0"
+            @click="openMenu(); $emit('needBrochure');"
+          >
+            <div class="flex gap-4">
+              <span>
+                Télécharger la brochure
+              </span>
+              <brochure />
+            </div>
           </div>
-        </div>
-        <div
-          v-scroll-to="'#contact'"
-          class="button text-white bg-bleu-2"
-          @click="openMenu();"
-        >
-          <div class="flex gap-4">
-            <span>
-              Contactez-nous
-            </span>
-            <contact />
+          <div
+            v-scroll-to="'#contact'"
+            class="button text-white bg-bleu-2"
+            @click="openMenu();"
+          >
+            <div class="flex gap-4">
+              <span>
+                Contactez-nous
+              </span>
+              <contact />
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +98,6 @@
   export default {
     data () {
       return {
-        isScrolling: false,
         menuOpened: false
       }
     },
@@ -87,10 +111,15 @@
     methods: {
       openMenu () {
         this.menuOpened = !this.menuOpened
-        this.isScrolling = !this.isScrolling
         document.body.classList.toggle('mod')
       }
-    }
+    },
+
+    watch: {
+      '$route' (to, from) {
+        this.openMenu()
+      }
+    },
   }
 </script>
 
@@ -117,5 +146,9 @@
   transition: stroke-dasharray 300ms, stroke-dashoffset 300ms, stroke 300ms;
   stroke-width: 5.5;
   stroke-linecap: round;
+}
+
+.nuxt-link-exact-active {
+  @apply font-medium;
 }
 </style>

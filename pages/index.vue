@@ -275,13 +275,13 @@
           <p class="text-s-m lg:text-s font-robotoslab">
             Au coeur de ce quartier, 2ème pôle tertiaire français après la Défense, ce programme bénéficie d'une desserte exceptionnelle. A proximité immédiate, vous accéderez à l'un des plus grands centres commerciaux de France, la gare de Lyon Part-Dieu, l'Auditorium de Lyon et les fameuses Halles Paul Bocuse. 
           </p>
-          <!-- <nuxt-link
-            to="#"
+          <nuxt-link
+            to="/quartier"
             title="Découvrir le quartier"
             class="button inline-block bg-white mt-16"
           >
             Découvrir le quartier
-          </nuxt-link> -->
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -481,7 +481,7 @@
           { rel: 'canonical', href: this.siteURL + this.$route.path }
         ]
       }
-    },
+    }
   }
 </script>
 
