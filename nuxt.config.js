@@ -116,6 +116,10 @@ export default {
     locales: ['fr']
   },
 
+  image: {
+    provider: 'static'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
