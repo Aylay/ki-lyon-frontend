@@ -48,7 +48,10 @@
       <div class="px-8 lg:px-56">
         <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:pr-20 mb-12 lg:mb-60">
           <div class="lg:w-1/2 order-2 lg:order-1 relative">
-            <div class="swiper-1 w-full overflow-hidden relative">
+            <div
+              class="swiper-1 w-full overflow-hidden relative"
+              id="swiperApts"
+            >
               <div class="swiper-wrapper">
                 <div
                   v-for="(img, i) in fluxImages"
@@ -65,7 +68,7 @@
               </div>
             </div>
             <div class="flex justify-between lg:justify-center items-center lg:gap-8 absolute left-1/2 transform -translate-x-1/2 -bottom-16 w-full">
-              <div class="swiper-1-pagination"></div>
+              <div class="swiper-1-pagination" id="swiperAptsPagination"></div>
               <p class="text-cta2 font-roboto">
                 <span id="indexSlideActive">0</span>
                 / {{ fluxImages.length }}
@@ -439,12 +442,22 @@
       openClosePerspectives () {
         this.perspectivesOpened = !this.perspectivesOpened
         document.body.classList.toggle('overflow-hidden')
+        this.reactivateSlider1()
       },
 
       openCloseFilm () {
         this.filmOpened = !this.filmOpened
         document.body.classList.toggle('overflow-hidden')
+        this.reactivateSlider1()
       },
+
+
+      reactivateSlider1 () {
+        const swiperApts = document.getElementById('swiperApts')
+        swiperApts.classList.add('swiper-fade', 'swiper-initialized', 'swiper-horizontal', 'swiper-pointer-events', 'swiper-watch-progress')
+        const swiperAptsPagination = document.getElementById('swiperAptsPagination')
+        swiperAptsPagination.classList.add('swiper-pagination-progressbar', 'swiper-pagination-horizontal')
+      }
     },
 
     beforeMount () {
