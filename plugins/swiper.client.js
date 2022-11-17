@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Swiper, Pagination, Autoplay, EffectFade } from 'swiper'
+import { Swiper, Pagination, Navigation, Autoplay, EffectFade } from 'swiper'
 
 const swiper = {
   install(Vue, options) {
@@ -7,7 +7,8 @@ const swiper = {
     Vue.prototype.$swiperModules = {
       Autoplay,
       Pagination,
-      EffectFade
+      EffectFade,
+      Navigation
     };
   }
 };

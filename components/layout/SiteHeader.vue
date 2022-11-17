@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 left-0 z-50 bg-white lg:border-b border-solid border-black border-opacity-10">
+  <header class="sticky top-0 left-0 z-40 bg-white lg:border-b border-solid border-black border-opacity-10">
     <div class="max-w-1512px mx-auto flex justify-between items-center py-10 px-8 lg:px-40 border-b lg:border-b-0 border-solid border-black border-opacity-10">
       <div class="flex gap-40">
         <nuxt-link

@@ -23,9 +23,12 @@
         <p class="text-m-m lg:text-m font-robotoslab mt-8">
           Découvrez des appartements d'exception<br />en plein cœur de la Part-Dieu à Lyon.
         </p>
-        <!-- <span class="button inline-block bg-white mt-16">
+        <span
+          class="button inline-block bg-white mt-16"
+          @click.prevent="openCloseFilm()"
+        >
           Voir le film
-        </span> -->
+        </span>
       </div>
       <div
         class="flex absolute left-1/2 transform -translate-x-1/2 bottom-[7%] z-20 cursor-pointer justify-center items-center gap-4"
@@ -239,9 +242,12 @@
               format="webp"
             />
           </div>
-          <!-- <span class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto">
+          <span
+            @click.prevent="openClosePerspectives()"
+            class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto"
+          >
             Voir les perspectives
-          </span> -->
+          </span>
         </div>
       </div>
     </div>
@@ -328,13 +334,26 @@
         </div>
       </div>
     </div>
+
+    <perspectives
+      v-if="perspectivesOpened"
+      @openCloseModal="openClosePerspectives()"
+    />
+
+    <film
+      v-if="filmOpened"
+      @openCloseModal="openCloseFilm()"
+    />
   </div>
 </template>
 
 <script>
   import 'swiper/swiper-bundle.min.css'
-  import ArrowBottom from '@/assets/img/svg/arrow-bottom-header.svg?inline'
 
+  import Perspectives from '@/components/Perspectives'
+  import Film from '@/components/Film'
+
+  import ArrowBottom from '@/assets/img/svg/arrow-bottom-header.svg?inline'
   import Avion from '@/assets/img/svg/avion.svg?inline'
   import Pole from '@/assets/img/svg/pole.svg?inline'
   import Restaurant from '@/assets/img/svg/restaurant.svg?inline'
@@ -359,7 +378,9 @@
             alt: 'Des espaces apaisants'
           }
         ],
-        siteURL: process.env.SITE_URL
+        siteURL: process.env.SITE_URL,
+        perspectivesOpened: false,
+        filmOpened: false
       }
     },
 
@@ -369,7 +390,9 @@
       Pole,
       Restaurant,
       Pin,
-      Train
+      Train,
+      Perspectives,
+      Film
     },
 
     mounted() {
@@ -411,7 +434,17 @@
             document.getElementById("owner1").classList.remove('opacity-0')
           }
         }
-      }
+      },
+
+      openClosePerspectives () {
+        this.perspectivesOpened = !this.perspectivesOpened
+        document.body.classList.toggle('overflow-hidden')
+      },
+
+      openCloseFilm () {
+        this.filmOpened = !this.filmOpened
+        document.body.classList.toggle('overflow-hidden')
+      },
     },
 
     beforeMount () {
