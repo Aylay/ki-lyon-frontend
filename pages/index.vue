@@ -89,7 +89,7 @@
               aux appartements au style inspirant.
             </p>
             <!-- <nuxt-link
-              to="#"
+              to="/appartements"
               title="Découvrir les appartements"
               class="button inline-block bg-white mt-16"
             >

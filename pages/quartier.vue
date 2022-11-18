@@ -36,8 +36,8 @@
       </div>
     </div>
     <div class="pt-24 lg:pt-40 px-8 lg:px-56">
-      <div class="flex flex-col lg:flex-row lg:justify-between lg:pl-20 mb-32 lg:mb-60">
-        <div class="lg:w-2/5 lg:pt-52 pb-24 lg:pb-60">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:pl-20 mb-32">
+        <div class="lg:w-2/5 lg:pt-52 pb-12 lg:pb-60">
           <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black">
             Programme immobilier quartier Lyon Part-Dieu
           </h3>
@@ -141,37 +141,67 @@
           id="quartier-map"
         >
           <div
-            class="w-full relative lg:absolute top-0 h-full transition-opacity duration-500 hidden lg:block"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 hidden lg:block"
             id="quartier-map1"
           >
-            <nuxt-img
-              src="/img/quartier-map-1.png"
-              alt="Une réalisation unique"
-              class="w-full top-[140px] sticky"
-              format="webp"
-            />
+            <div class="top-[140px] sticky">
+              <nuxt-img
+                src="/img/quartier-map-1.png"
+                alt="Une réalisation unique"
+                class="w-full"
+                format="webp"
+              />
+              <div class="text-center">
+                <span
+                  @click.prevent="openMap()"
+                  class="button hidden lg:inline-block bg-white w-max lg:w-auto"
+                >
+                  Voir la carte
+                </span>
+              </div>
+            </div>
           </div>
           <div
             class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
             id="quartier-map2"
           >
-            <nuxt-img
-              src="/img/quartier-map-2.png"
-              alt="Un bâtiment paysage"
-              class="w-full top-[140px] sticky"
-              format="webp"
-            />
+            <div class="top-[140px] sticky">
+              <nuxt-img
+                src="/img/quartier-map-2.png"
+                alt="Un bâtiment paysage"
+                class="w-full"
+                format="webp"
+              />
+              <div class="text-center">
+                <span
+                  @click.prevent="openMap()"
+                  class="button hidden lg:inline-block bg-white w-max lg:w-auto"
+                >
+                  Voir la carte
+                </span>
+              </div>
+            </div>
           </div>
           <div
             class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
             id="quartier-map3"
           >
-            <nuxt-img
-              src="/img/quartier-map-3.png"
-              alt="Un bâtiment paysage"
-              class="w-full top-[140px] sticky"
-              format="webp"
-            />
+            <div class="top-[140px] sticky">
+              <nuxt-img
+                src="/img/quartier-map-3.png"
+                alt="Un bâtiment paysage"
+                class="w-full"
+                format="webp"
+              />
+              <div class="text-center">
+                <span
+                  @click.prevent="openMap()"
+                  class="button hidden lg:inline-block bg-white w-max lg:w-auto"
+                >
+                  Voir la carte
+                </span>
+              </div>
+            </div>
           </div>
           <div class="w-full relative block lg:hidden">
             <nuxt-img
@@ -181,12 +211,6 @@
               format="webp"
             />
           </div>
-          <span
-            @click.prevent="openMap()"
-            class="button hidden lg:inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto"
-          >
-            Voir la carte
-          </span>
         </div>
       </div>
     </div>
