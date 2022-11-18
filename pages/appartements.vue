@@ -4,7 +4,7 @@
       <div class="absolute h-full w-full z-0">
         <nuxt-img
           src="/img/header-apts.jpg"
-          alt="Des appartements neufs d’exception à Lyon"
+          alt="Terrasses avec vue"
           class="w-full h-full object-cover"
           format="webp"
         />
@@ -227,7 +227,7 @@
           >
             <nuxt-img
               src="/img/premium-1.png"
-              alt="Une réalisation unique"
+              alt="Des prestations de qualité"
               class="w-full top-[140px] sticky"
               format="webp"
             />
@@ -238,7 +238,7 @@
           >
             <nuxt-img
               src="/img/premium-2.png"
-              alt="Un bâtiment paysage"
+              alt="Un intérieur soigné"
               class="w-full top-[140px] sticky"
               format="webp"
             />
@@ -261,46 +261,46 @@ export default {
       aptImages: [
         {
           src: 'apt-1.png',
-          alt: 'Univers d’espace et de lumière'
+          alt: 'Terrasses avec vue'
         },
         {
           src: 'apt-2.png',
-          alt: 'Un coeur végétal'
+          alt: 'Un univers d’espace et de lumière'
         },
         {
           src: 'apt-3.png',
-          alt: 'Des espaces apaisants'
+          alt: 'De multiples terrasses qui s’ouvrent sur des décors différents'
         },
         {
           src: 'apt-4.png',
-          alt: 'Un coeur végétal'
+          alt: 'Comme des bulles suspendues'
         },
         {
           src: 'apt-5.png',
-          alt: 'Des espaces apaisants'
+          alt: 'Expositions optimales'
         }
       ],
       finitionImages1: [
         {
           src: 'finition-1.jpg',
-          alt: 'Univers d’espace et de lumière',
+          alt: 'Appartements grands volumes',
           flex: 'flex-1 lg:flex-2'
         },
         {
           src: 'finition-2.jpg',
-          alt: 'Un coeur végétal',
+          alt: 'Un patio de fraîcheur',
           flex: 'flex-1'
         }
       ],
       finitionImages2: [
         {
           src: 'finition-3.jpg',
-          alt: 'Des espaces apaisants',
+          alt: 'Terrasses avec vue sur les reliefs lyonnais',
           flex: 'flex-1'
         },
         {
           src: 'finition-4.jpg',
-          alt: 'Un coeur végétal',
+          alt: 'Une haute idée du confort',
           flex: 'flex-1 lg:flex-2'
         }
       ],
@@ -385,12 +385,12 @@ export default {
 
   head () {
     return {
-      title: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon',
+      title: '85 appartements neufs du studio au 5 pièces à Lyon',
       meta: [
-        { hid: 'description', name: 'description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
-        { hid: 'ogdescription', property: 'og:description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
+        { hid: 'description', name: 'description', content: 'Un programme immobilier neuf à Lyon avec des appartements offrant de grands espaces aux belles perspectives et de larges baies vitrées sublimant les paysages.' },
+        { hid: 'ogdescription', property: 'og:description', content: 'Un programme immobilier neuf à Lyon avec des appartements offrant de grands espaces aux belles perspectives et de larges baies vitrées sublimant les paysages.' },
         { hid: 'url', property: 'og:url', content: this.siteURL + this.$route.path },
-        { hid: 'title', property: 'og:title', content: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon' },
+        { hid: 'title', property: 'og:title', content: '85 appartements neufs du studio au 5 pièces à Lyon' },
       ],
       link: [
         { rel: 'canonical', href: this.siteURL + this.$route.path }

@@ -4,7 +4,7 @@
       <div class="absolute h-full w-full z-0">
         <nuxt-img
           src="/img/header-quartier.jpg"
-          alt="Des appartements neufs d’exception à Lyon"
+          alt="Un bâtiment paysage"
           class="w-full h-full object-cover"
           format="webp"
         />
@@ -147,7 +147,7 @@
             <div class="top-[140px] sticky">
               <nuxt-img
                 src="/img/quartier-map-1.png"
-                alt="Une réalisation unique"
+                alt="Les écoles à proximité"
                 class="w-full"
                 format="webp"
               />
@@ -168,7 +168,7 @@
             <div class="top-[140px] sticky">
               <nuxt-img
                 src="/img/quartier-map-2.png"
-                alt="Un bâtiment paysage"
+                alt="Les transports dans le quartier"
                 class="w-full"
                 format="webp"
               />
@@ -189,7 +189,7 @@
             <div class="top-[140px] sticky">
               <nuxt-img
                 src="/img/quartier-map-3.png"
-                alt="Un bâtiment paysage"
+                alt="Commerces, restaurants, espaces culturels et de loisirs"
                 class="w-full"
                 format="webp"
               />
@@ -206,7 +206,7 @@
           <div class="w-full relative block lg:hidden">
             <nuxt-img
               src="/img/quartier-map-full-mobile.png"
-              alt="Un bâtiment paysage"
+              alt="Le quartier de Lyon Part-Dieu"
               class="w-full"
               format="webp"
             />
@@ -384,12 +384,12 @@ export default {
 
   head () {
     return {
-      title: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon',
+      title: 'Des appartements neuf dans le quartier Lyon Part-Dieu',
       meta: [
-        { hid: 'description', name: 'description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
-        { hid: 'ogdescription', property: 'og:description', content: '85 appartements neufs du studio au 5 pièces bénéficiant de vues inédites sur la ville de Lyon dans le quartier de la Part-Dieu' },
+        { hid: 'description', name: 'description', content: '15 niveaux dont 8 pour les bureaux et 7 pour les appartements afin de  marier espaces de travail et lieux d’habitation, dans un quartier dynamique de Lyon.' },
+        { hid: 'ogdescription', property: 'og:description', content: '15 niveaux dont 8 pour les bureaux et 7 pour les appartements afin de  marier espaces de travail et lieux d’habitation, dans un quartier dynamique de Lyon.' },
         { hid: 'url', property: 'og:url', content: this.siteURL + this.$route.path },
-        { hid: 'title', property: 'og:title', content: 'Ki - Une nouvelle adresse d’exception - Immobilier neuf à Lyon' },
+        { hid: 'title', property: 'og:title', content: 'Des appartements neuf dans le quartier Lyon Part-Dieu' },
       ],
       link: [
         { rel: 'canonical', href: this.siteURL + this.$route.path }

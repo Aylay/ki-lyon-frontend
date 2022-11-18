@@ -18,7 +18,7 @@
     <div class="w-full lg:relative z-10 pt-0 lg:pt-40 pb-0 lg:pb-40">
       <nuxt-img
         src="/img/quartier-map-full.png"
-        alt="img.alt"
+        alt="Le quartier de Lyon Part-Dieu"
         class="w-auto max-h-[calc(100vh-100px)] lg:max-h-[calc(100vh-300px)] mx-auto"
         format="webp"
         loading="lazy"
