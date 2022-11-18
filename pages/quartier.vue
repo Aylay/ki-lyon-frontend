@@ -141,7 +141,7 @@
           id="quartier-map"
         >
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500 hidden lg:block"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 hidden lg:block z-10"
             id="quartier-map1"
           >
             <div class="top-[140px] sticky">
@@ -162,7 +162,7 @@
             </div>
           </div>
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block z-10"
             id="quartier-map2"
           >
             <div class="top-[140px] sticky">
@@ -183,7 +183,7 @@
             </div>
           </div>
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block z-10"
             id="quartier-map3"
           >
             <div class="top-[140px] sticky">
@@ -321,16 +321,31 @@ export default {
       if (window.innerWidth > 1023) {
         if (scrollY >= thirdNeighborhoodDiv && scrollY < twoThirdNeighborhoodDiv) {
           document.getElementById("quartier-map1").classList.add('opacity-0')
+          document.getElementById("quartier-map1").classList.remove('z-10')
+
           document.getElementById("quartier-map2").classList.remove('opacity-0')
+          document.getElementById("quartier-map2").classList.add('z-10')
+
           document.getElementById("quartier-map3").classList.add('opacity-0')
+          document.getElementById("quartier-map3").classList.remove('z-10')
         } else if (scrollY >= twoThirdNeighborhoodDiv) {
           document.getElementById("quartier-map1").classList.add('opacity-0')
+          document.getElementById("quartier-map1").classList.remove('z-10')
+
           document.getElementById("quartier-map2").classList.add('opacity-0')
+          document.getElementById("quartier-map2").classList.remove('z-10')
+
           document.getElementById("quartier-map3").classList.remove('opacity-0')
+          document.getElementById("quartier-map3").classList.add('z-10')
         } else {
           document.getElementById("quartier-map1").classList.remove('opacity-0')
+          document.getElementById("quartier-map1").classList.add('z-10')
+
           document.getElementById("quartier-map2").classList.add('opacity-0')
+          document.getElementById("quartier-map2").classList.remove('z-10')
+
           document.getElementById("quartier-map3").classList.add('opacity-0')
+          document.getElementById("quartier-map3").classList.remove('z-10')
         }
       }
     },

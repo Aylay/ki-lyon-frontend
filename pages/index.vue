@@ -224,33 +224,47 @@
           id="owner"
         >
           <div
-            class="w-full relative lg:absolute top-0 h-full transition-opacity duration-500"
+            class="w-full relative lg:absolute top-0 h-full transition-opacity duration-500 z-10"
             id="owner1"
           >
-            <nuxt-img
-              src="/img/proprietaire-1.png"
-              alt="Une réalisation unique"
-              class="w-full top-[140px] sticky"
-              format="webp"
-            />
+            <div class="top-[140px] sticky">
+              <nuxt-img
+                src="/img/proprietaire-1.png"
+                alt="Une réalisation unique"
+                class="w-full"
+                format="webp"
+              />
+              <div class="text-center mt-8">
+                <span
+                  @click.prevent="openClosePerspectives()"
+                  class="button inline-block bg-white w-max lg:w-auto"
+                >
+                  Voir les perspectives
+                </span>
+              </div>
+            </div>
           </div>
           <div
-            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block"
+            class="w-full absolute top-0 h-full transition-opacity duration-500 opacity-0 hidden lg:block z-10"
             id="owner2"
           >
-            <nuxt-img
-              src="/img/proprietaire-2.png"
-              alt="Un bâtiment paysage"
-              class="w-full top-[140px] sticky"
-              format="webp"
-            />
+            <div class="top-[140px] sticky">
+              <nuxt-img
+                src="/img/proprietaire-2.png"
+                alt="Un bâtiment paysage"
+                class="w-full"
+                format="webp"
+              />
+              <div class="text-center mt-8">
+                <span
+                  @click.prevent="openClosePerspectives()"
+                  class="button inline-block bg-white w-max lg:w-auto"
+                >
+                  Voir les perspectives
+                </span>
+              </div>
+            </div>
           </div>
-          <span
-            @click.prevent="openClosePerspectives()"
-            class="button inline-block absolute bottom-8 lg:bottom-auto lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 z-20 bg-white w-max lg:w-auto"
-          >
-            Voir les perspectives
-          </span>
         </div>
       </div>
     </div>
@@ -426,14 +440,18 @@
       onScroll () {
         const heightOwnerDivTop = document.getElementById("owner").offsetTop
         const heightOwnerDivHeight = document.getElementById("owner").clientHeight
-        const middleOwnerDiv = heightOwnerDivTop + heightOwnerDivHeight / 8
+        const middleOwnerDiv = heightOwnerDivTop + heightOwnerDivHeight / 15
 
         if (window.innerWidth > 1023) {
           if (scrollY >= middleOwnerDiv) {
             document.getElementById("owner1").classList.add('opacity-0')
+            document.getElementById("owner1").classList.remove('z-10')
+            document.getElementById("owner2").classList.add('z-10')
             document.getElementById("owner2").classList.remove('opacity-0')
           } else {
             document.getElementById("owner2").classList.add('opacity-0')
+            document.getElementById("owner2").classList.remove('z-10')
+            document.getElementById("owner1").classList.add('z-10')
             document.getElementById("owner1").classList.remove('opacity-0')
           }
         }
