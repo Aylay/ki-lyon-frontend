@@ -72,6 +72,9 @@ module.exports = {
       },
       borderRadius: {
         '70px': '7rem'
+      },
+      flex: {
+        '2': '2 2 0%'
       }
     }
   }

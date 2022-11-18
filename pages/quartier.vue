@@ -217,7 +217,7 @@
 
     <div class="px-8 lg:px-40 bg-bleu-1 bg-opacity-10 py-32 lg:py-40">
       <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-bleu-1 font-black lg:text-center">
-        DDes appartements neufs idéalement situés
+        Des appartements neufs idéalement situés
       </h3>
       <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-16 lg:mb-24 uppercase lg:text-center">
         Temps de trajet

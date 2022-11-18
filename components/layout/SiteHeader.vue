@@ -46,7 +46,7 @@
               Le quartier
             </nuxt-link>
           </li>
-          <!-- <li class="text-cta1 font-roboto hidden lg:block">
+          <li class="text-cta1 font-roboto hidden lg:block">
             |
           </li>
           <li>
@@ -57,7 +57,7 @@
             >
             Les appartements
             </nuxt-link>
-          </li> -->
+          </li>
         </ul>
         <div class="lg:flex gap-8 lg:gap-6">
           <div

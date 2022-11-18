@@ -88,13 +88,13 @@
               à l'architecture signée d'un référent mondial et
               aux appartements au style inspirant.
             </p>
-            <!-- <nuxt-link
+            <nuxt-link
               to="/appartements"
               title="Découvrir les appartements"
               class="button inline-block bg-white mt-16"
             >
               Découvrir les appartements
-            </nuxt-link> -->
+            </nuxt-link>
           </div>
         </div>
       </div>
