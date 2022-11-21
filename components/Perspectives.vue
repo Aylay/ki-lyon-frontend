@@ -57,11 +57,6 @@
       return {
         perspectives: [
           {
-            title: "Conçue par l'architecte de renom Sou Fujimoto",
-            src: 'perspective-1.jpg',
-            alt: 'Apporter un nouveau regard sur l’architecture'
-          },
-          {
             title: 'Véritable lieu de vie où il fera bon travailler et habiter',
             src: 'perspective-2.jpg',
             alt: '550m² de commerces, 22 000 m² de bureaux et 85 appartements'
@@ -90,7 +85,12 @@
             title: 'Des grands espaces aux belles perspectives',
             src: 'perspective-7.jpg',
             alt: 'Larges baies vitrées sublimant les paysages'
-          }
+          },
+          {
+            title: "Conçue par l'architecte de renom Sou Fujimoto",
+            src: 'perspective-1.jpg',
+            alt: 'Apporter un nouveau regard sur l’architecture'
+          },
         ]
       }
     },
