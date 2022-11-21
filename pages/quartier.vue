@@ -384,7 +384,7 @@ export default {
 
   head () {
     return {
-      title: 'Des appartements neuf dans le quartier Lyon Part-Dieu',
+      title: 'Des appartements neufs dans le quartier Lyon Part-Dieu',
       meta: [
         { hid: 'description', name: 'description', content: '15 niveaux dont 8 pour les bureaux et 7 pour les appartements afin de  marier espaces de travail et lieux d’habitation, dans un quartier dynamique de Lyon.' },
         { hid: 'ogdescription', property: 'og:description', content: '15 niveaux dont 8 pour les bureaux et 7 pour les appartements afin de  marier espaces de travail et lieux d’habitation, dans un quartier dynamique de Lyon.' },
