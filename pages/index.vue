@@ -514,7 +514,7 @@
     },
 
     async fetch () {
-      const xmlData = await fetch('http://localhost:3000/ki_lyon.xml')
+      const xmlData = await fetch('https://ki-lyon-frontend-git-develop-aylay.vercel.app/ki_lyon.xml')
         .then(res => res.text())
         .then(data => {
           const xml = data;
