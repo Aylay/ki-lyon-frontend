@@ -16,4 +16,11 @@
   .button:hover {
     @apply bg-bleu-1 text-white;
   }
+  .button.button-2:hover {
+    @apply bg-bleu-2 text-white;
+  }
+
+  .see-more:hover .see-more-picto {
+    @apply after:bg-white before:bg-white;
+  }
 }
