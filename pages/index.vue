@@ -171,7 +171,7 @@
       <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-white font-black lg:text-center">
         Du studio au 5 pièces 
       </h3>
-      <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 mb-8 uppercase lg:text-center text-white">
+      <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 pb-8 uppercase lg:text-center text-white">
         Habiter l'exception, vivre l'aisance<br />à tout prix
       </h2>
     </div>
@@ -395,6 +395,7 @@
   import Restaurant from '@/assets/img/svg/restaurant.svg?inline'
   import Pin from '@/assets/img/svg/pin.svg?inline'
   import Train from '@/assets/img/svg/train.svg?inline'
+import { off } from 'process'
 
   const xml2js = require('xml2js');
 
@@ -594,8 +595,15 @@
           this.unitkeyToOpen = -1
         } else {
           this.unitkeyToOpen = unit
+          
+          let offset = 0
+          if (window.innerWidth > 1023) {
+            offset = -130
+          } else {
+            offset = -101
+          }
           const options = {
-            offset: -130
+            offset: offset
           }
           setTimeout(() => {
             this.$scrollTo('#unit-' + unit, 500, options)
