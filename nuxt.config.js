@@ -14,6 +14,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'google-site-verification', content: '8T0e_XwDn0HJ00a_XWYrVqW0AkIJtogiLVWWtFiWoTE' },
       { hid: 'locale', property: 'og:locale', content: 'fr_FR'},
       { hid: 'type', property: 'og:type', content: 'website'},
       { hid: 'site_name', property: 'og:site_name', content: 'Ki Lyon'},
