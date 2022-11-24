@@ -511,6 +511,9 @@
       })
       this.newProperties = this.newProperties.sort(function(a, b){return a.nbPieces - b.nbPieces});
 
+      setTimeout(() => {
+        this.reactivateSlider1()
+      }, 100);
     },
 
     async fetch () {
@@ -596,7 +599,7 @@
           }
           setTimeout(() => {
             this.$scrollTo('#unit-' + unit, 500, options)
-          }, 100);
+          }, 100)
         }
       }
     },
