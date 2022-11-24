@@ -591,6 +591,12 @@
           this.unitkeyToOpen = -1
         } else {
           this.unitkeyToOpen = unit
+          const options = {
+            offset: -130
+          }
+          setTimeout(() => {
+            this.$scrollTo('#unit-' + unit, 500, options)
+          }, 100);
         }
       }
     },

@@ -2,6 +2,7 @@
   <div
     class="px-8 lg:px-56 transition-colors"
     :class="isOpened ? 'bg-bleu-1' : 'bg-bleu-2'"
+    :id="'unit-' + actualUnit"
   >
     <div
       class="py-16 lg:py-20 border-b border-solid"
