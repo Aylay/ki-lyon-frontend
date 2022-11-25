@@ -7,7 +7,7 @@
       format="webp"
     />
     <p class="mt-8 text-s-m lg:text-s font-robotoslab text-black">
-      La page que vous souhaitez consulsuter n’existe pas.
+      La page que vous souhaitez consulter n’existe pas.
     </p>
     <div class="mt-8 lg:mt-16">
       <nuxt-link
