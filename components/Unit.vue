@@ -5,8 +5,8 @@
     :id="'unit-' + actualUnit"
   >
     <div
-      class="py-16 lg:py-20 border-b border-solid"
-      :class="(!isLast && !isOpened) ? 'border-white border-opacity-20' : 'border-transparent'"
+      class="py-12 border-b border-solid"
+      :class="(!isLast && !isOpened) ? 'border-white border-opacity-40' : 'border-transparent'"
     >
       <h3 class="text-h3-m lg:text-h3 uppercase font-roboto font-black text-white">
         {{ unitType }}
