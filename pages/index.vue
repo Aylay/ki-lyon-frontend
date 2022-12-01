@@ -518,10 +518,9 @@ import { off } from 'process'
     },
 
     async fetch () {
-      const xmlData = await fetch('https://ki-lyon-frontend-git-develop-aylay.vercel.app/ki_lyon.xml')
+      const xmlData = await fetch('http://ftp2.mgcconnecting.com/CONNECTING/KILYON/mgc_kilyon.xml')
         .then(res => res.text())
         .then(data => {
-          const xml = data;
           return data;
         });
       const jsonData = await this.xmlToJSON(xmlData);
