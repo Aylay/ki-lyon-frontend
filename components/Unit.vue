@@ -61,6 +61,7 @@
           <p class="text-m font-semibold font-robotoslab text-white flex-2">Annexes</p>
           <p class="text-m font-semibold font-robotoslab text-white flex-1">Parking</p>
           <p class="text-m font-semibold font-robotoslab text-white flex-2">Prix</p>
+          <p class="text-m font-semibold font-robotoslab text-white flex-1">Plan</p>
         </div>
         <div
           class="p-8 flex even:bg-white even:bg-opacity-10"
@@ -80,6 +81,26 @@
               (TVA 20%)
             </p>
           </div>
+          <div
+            class="flex-1 flex gap-4 text-white"
+            v-if="(lot.plans.length > 0)"
+          >
+            <a
+              v-for="(plan, i) in lot.plans"
+              :key="i"
+              target="_blank"
+              :href="plan.source"
+              class="text-s font-robotoslab text-white underline hover:no-underline"
+            >
+              {{ plan.type === 'PLAN' ? '2D' : '3D' }}
+            </a>
+          </div>
+          <p
+            class="text-s font-robotoslab text-white flex-1"
+            v-else
+          >
+            -
+          </p>
         </div>
       </div>
 
@@ -118,6 +139,29 @@
               <p class="text-s-m font-robotoslab text-white">{{ lot.prix.toLocaleString() }} €</p>
               <p class="text-xs-m font-robotoslab text-white">(TVA 20%)</p>
             </div>
+          </div>
+          <div class="flex gap-8 items-center">
+            <p class="text-m-m font-semibold font-robotoslab text-white">Plan</p>
+            <div
+              class="flex-1 flex gap-4 text-white"
+              v-if="(lot.plans.length > 0)"
+            >
+              <a
+                v-for="(plan, i) in lot.plans"
+                :key="i"
+                target="_blank"
+                :href="plan.source"
+                class="text-s-m font-robotoslab text-white underline hover:no-underline"
+              >
+                {{ plan.type === 'PLAN' ? '2D' : '3D' }}
+              </a>
+            </div>
+            <p
+              class="text-s-m font-robotoslab text-white flex-1"
+              v-else
+            >
+              -
+            </p>
           </div>
         </div>
       </div>

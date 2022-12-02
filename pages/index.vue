@@ -395,7 +395,6 @@
   import Restaurant from '@/assets/img/svg/restaurant.svg?inline'
   import Pin from '@/assets/img/svg/pin.svg?inline'
   import Train from '@/assets/img/svg/train.svg?inline'
-import { off } from 'process'
 
   const xml2js = require('xml2js');
 
@@ -482,6 +481,17 @@ import { off } from 'process'
           }
         }
 
+        // Check plans
+        let plans = []
+        for (const element of bien.images[0].image) {
+          const elm = element;
+          let plan = {
+            type: elm.$.type,
+            source: elm.source[0]
+          }
+          plans.push(plan)
+        }
+
         return {
           lot: bien.identification[0].nom[0] ,
           nbPieces: parseInt(bien.description[0].nombrepieces[0]),
@@ -489,7 +499,8 @@ import { off } from 'process'
           etage: parseInt(bien.description[0].etage[0]),
           annexes: annexes,
           parking: parking,
-          prix: parseFloat(bien.informationstarifaires[0].prix[0].montant)
+          prix: parseFloat(bien.informationstarifaires[0].prix[0].montant),
+          plans: plans
         }
       })
 
