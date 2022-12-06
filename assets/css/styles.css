@@ -14,6 +14,13 @@
     @apply text-cta2 rounded-70px uppercase cursor-pointer py-8 px-12 border border-black border-solid border-opacity-10 transition-colors inline-block;
   }
   .button:hover {
-    @apply bg-bleu-1 text-white;
+    @apply lg:bg-bleu-1 lg:text-white;
+  }
+  .button.button-2:hover {
+    @apply lg:bg-bleu-2;
+  }
+
+  .see-more:hover .see-more-picto {
+    @apply lg:after:bg-white lg:before:bg-white;
   }
 }

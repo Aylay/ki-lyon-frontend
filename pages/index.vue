@@ -167,6 +167,24 @@
       </div>
     </div>
 
+    <div class="pt-24 lg:pt-40 lg:pb-12 px-8 lg:px-56 bg-bleu-1">
+      <h3 class="text-h4-m lg:text-h4 font-roboto uppercase text-white font-black lg:text-center">
+        Du studio au 5 pièces 
+      </h3>
+      <h2 class="text-h2-m lg:text-h2 font-black font-roboto mt-4 pb-8 uppercase lg:text-center text-white">
+        Habiter l'exception, vivre l'aisance<br />à tout prix
+      </h2>
+    </div>
+    <unit
+      v-for="(elm, i) in newProperties"
+      :key="i"
+      :unit="elm"
+      :isOpened="unitkeyToOpen === i ? true : false"
+      :isLast="(i + 1) === newProperties.length ? true : false"
+      :actualUnit="i"
+      @unitNeedToBeOpen="unitToOpen"
+    />
+
     <div class="pt-24 lg:pt-40 px-8 lg:px-56">
       <div class="flex flex-col lg:flex-row lg:justify-between lg:pl-20 mb-32 lg:mb-60">
         <div class="lg:w-2/5 lg:pt-52 pb-24 lg:pb-60">
@@ -369,6 +387,7 @@
 
   import Perspectives from '@/components/Perspectives'
   import Film from '@/components/Film'
+  import Unit from '@/components/Unit'
 
   import ArrowBottom from '@/assets/img/svg/arrow-bottom-header.svg?inline'
   import Avion from '@/assets/img/svg/avion.svg?inline'
@@ -376,6 +395,8 @@
   import Restaurant from '@/assets/img/svg/restaurant.svg?inline'
   import Pin from '@/assets/img/svg/pin.svg?inline'
   import Train from '@/assets/img/svg/train.svg?inline'
+
+  const xml2js = require('xml2js');
 
   export default {
     data () {
@@ -397,7 +418,10 @@
         ],
         siteURL: process.env.SITE_URL,
         perspectivesOpened: false,
-        filmOpened: false
+        filmOpened: false,
+        properties: [],
+        newProperties: [],
+        unitkeyToOpen: 0
       }
     },
 
@@ -409,10 +433,11 @@
       Pin,
       Train,
       Perspectives,
-      Film
+      Film,
+      Unit
     },
 
-    mounted() {
+    mounted () {
       const swiper1 = new this.$swiper('.swiper-1', {
         loop: true,
         modules: [this.$swiperModules.Autoplay, this.$swiperModules.Pagination, this.$swiperModules.EffectFade],
@@ -434,9 +459,107 @@
           }
         }
       })
+
+      let newProperties = this.properties
+      .filter(bien => bien.informationstarifaires)
+      .map((bien) => {
+        // Check parking
+        let parking = false
+        if (bien.annexes) {
+          for (const annexe of bien.annexes[0].annexe) {
+            if (annexe.description[0].typeannexe[0] === 'PARKING') parking = true
+          }
+        }
+
+        // Check annexes
+        let annexes = ''
+        if (bien.description[0].options) {
+          for (const option of bien.description[0].options) {
+            for (const opt of option.option) {
+              annexes += annexes + ' ' + opt._
+            }
+          }
+        }
+
+        // Check plans
+        let plans = []
+        for (const element of bien.images[0].image) {
+          const elm = element;
+          let plan = {
+            type: elm.$.type,
+            source: elm.source[0]
+          }
+          plans.push(plan)
+        }
+
+        return {
+          lot: bien.identification[0].nom[0] ,
+          nbPieces: parseInt(bien.description[0].nombrepieces[0]),
+          surface: parseFloat(bien.description[0].superficie[0]),
+          etage: parseInt(bien.description[0].etage[0]),
+          annexes: annexes,
+          parking: parking,
+          prix: parseFloat(bien.informationstarifaires[0].prix[0].montant),
+          plans: plans
+        }
+      })
+
+      const newPropertiesFiltered = this.groupBy(newProperties, 'nbPieces')
+      Object.entries(newPropertiesFiltered).forEach(([key, value]) => {
+        let prices = []
+        for (const lot of value) {
+          prices.push(lot.prix)
+        }
+        prices = prices.sort(function(a, b){return a - b})
+
+        const set = {
+          nbPieces: parseInt(key),
+          lots: value,
+          surface: value[0].surface,
+          prixMin : prices[0]
+        }
+
+        this.newProperties.push(set)
+      })
+      this.newProperties = this.newProperties.sort(function(a, b){return a.nbPieces - b.nbPieces});
+
+      setTimeout(() => {
+        this.reactivateSlider1()
+      }, 100);
+    },
+
+    async fetch () {
+      const xmlData = await fetch('http://ftp2.mgcconnecting.com/CONNECTING/KILYON/mgc_kilyon.xml')
+        .then(res => res.text())
+        .then(data => {
+          return data;
+        });
+      const jsonData = await this.xmlToJSON(xmlData);
+      if (jsonData && jsonData.clients) this.properties = jsonData.clients.client[0].groupes[0].groupe[0].annonceurs[0].annonceur[0].programmes[0].programme[0].biens[0].bien
     },
 
     methods: {
+      xmlToJSON (str, options)  {
+        return new Promise((resolve, reject) => {
+          xml2js.parseString(str, options, (err, jsonObj) => {
+            if (err) {
+              return reject(err);
+            }
+            resolve(jsonObj);
+          });
+        });
+      },
+
+      groupBy (arr, prop) {
+        let grouped = {};
+        for (const element of arr) {
+          const p = element[prop];
+          if (!grouped[p]) { grouped[p] = []; }
+          grouped[p].push(element);
+        }
+        return grouped;
+      },
+
       onScroll () {
         const heightOwnerDivTop = document.getElementById("owner").offsetTop
         const heightOwnerDivHeight = document.getElementById("owner").clientHeight
@@ -475,6 +598,27 @@
         swiperApts.classList.add('swiper-fade', 'swiper-initialized', 'swiper-horizontal', 'swiper-pointer-events', 'swiper-watch-progress')
         const swiperAptsPagination = document.getElementById('swiperAptsPagination')
         swiperAptsPagination.classList.add('swiper-pagination-progressbar', 'swiper-pagination-horizontal')
+      },
+
+      unitToOpen (unit) {
+        if (this.unitkeyToOpen === unit) {
+          this.unitkeyToOpen = -1
+        } else {
+          this.unitkeyToOpen = unit
+          
+          let offset = 0
+          if (window.innerWidth > 1023) {
+            offset = -130
+          } else {
+            offset = -101
+          }
+          const options = {
+            offset: offset
+          }
+          setTimeout(() => {
+            this.$scrollTo('#unit-' + unit, 500, options)
+          }, 100)
+        }
       }
     },
 
@@ -482,7 +626,7 @@
       window.addEventListener('scroll', this.onScroll);
     },
 
-    beforeDestroy() {
+    beforeDestroy () {
       window.removeEventListener('scroll', this.onScroll);
     },
 

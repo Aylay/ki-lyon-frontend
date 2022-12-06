@@ -77,8 +77,4 @@ export default {
 .answer ul li {
   @apply pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4;
 }
-
-.see-more:hover .see-more-picto {
-  @apply after:bg-white before:bg-white;
-}
 </style>

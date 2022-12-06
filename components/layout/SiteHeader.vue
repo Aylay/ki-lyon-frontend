@@ -1,16 +1,16 @@
 <template>
-  <header class="sticky top-0 left-0 z-40 bg-white lg:border-b border-solid border-black border-opacity-10">
-    <div class="max-w-1512px mx-auto flex justify-between lg:justify-start gap-20 items-center py-10 px-8 lg:px-40 border-b lg:border-b-0 border-solid border-black border-opacity-10">
+  <header class="sticky top-0 left-0 z-40 bg-white xl:border-b border-solid border-black border-opacity-10">
+    <div class="max-w-1512px mx-auto flex justify-between xl:justify-start gap-20 items-center py-10 px-8 xl:px-40 border-b xl:border-b-0 border-solid border-black border-opacity-10">
       <div class="flex gap-40">
         <nuxt-link
           to="/"
           title="Ki"
         >
-          <logo-ki class="max-w-[76px] lg:max-w-none h-auto" />
+          <logo-ki class="max-w-[76px] xl:max-w-none h-auto" />
         </nuxt-link>
       </div>
       <div
-        class="lg:hidden w-20 h-20 ml-4"
+        class="xl:hidden w-20 h-20 ml-4"
         @click="openMenu"
       >
         <svg
@@ -33,20 +33,20 @@
         </svg>
       </div>
       <div
-        class="absolute top-full lg:top-auto lg:relative w-full lg:w-auto left-0 lg:left-auto px-8 lg:px-0 bg-white lg:bg-transparent transition-all duration-300 lg:opacity-100 h-full-header-m lg:h-auto lg:max-h-[none] lg:overflow-auto lg:flex flex-1 justify-between items-center"
+        class="absolute top-full xl:top-auto xl:relative w-full xl:w-auto left-0 xl:left-auto px-8 xl:px-0 bg-white xl:bg-transparent transition-all duration-300 xl:opacity-100 h-full-header-m xl:h-auto xl:max-h-[none] xl:overflow-auto xl:flex flex-1 justify-between items-center"
         :class="menuOpened === true ? 'max-h-none overflow-auto opacity-100' : 'max-h-0 overflow-hidden opacity-0'"
       >
-        <ul class="flex flex-col lg:flex-row gap-6 mt-24 lg:mt-0">
-          <li class="border-b lg:border-0 border-solid border-black">
+        <ul class="flex flex-col xl:flex-row gap-6 mt-24 xl:mt-0">
+          <li class="border-b xl:border-0 border-solid border-black">
             <nuxt-link
-              class="text-cta1 font-roboto block py-6 lg:py-0"
+              class="text-cta1 font-roboto block py-6 xl:py-0"
               to="/quartier"
               title="Le quartier Ki"
             >
               Le quartier
             </nuxt-link>
           </li>
-          <li class="text-cta1 font-roboto hidden lg:block">
+          <li class="text-cta1 font-roboto hidden xl:block">
             |
           </li>
           <li>
@@ -59,10 +59,10 @@
             </nuxt-link>
           </li>
         </ul>
-        <div class="lg:flex gap-8 lg:gap-6">
+        <div class="xl:flex gap-8 xl:gap-6">
           <div
             v-scroll-to="'#contact'"
-            class="button text-white bg-bleu-2 mb-8 lg:mb-0 mt-24 lg:mt-0"
+            class="button text-white bg-bleu-2 mb-8 xl:mb-0 mt-24 xl:mt-0"
             @click="openMenu(); $emit('needBrochure');"
           >
             <div class="flex gap-4">

@@ -1,3 +1,7 @@
+const urlExclude = [
+  '/404'
+]
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
@@ -109,6 +113,7 @@ export default {
   sitemap: {
     path: '/sitemap.xml',
     gzip: true,
+    exclude: urlExclude,
     hostname: process.env.SITE_URL
   },
 
