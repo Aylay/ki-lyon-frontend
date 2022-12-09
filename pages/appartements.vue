@@ -138,6 +138,10 @@
       </div>
     </div>
 
+    <prices />
+
+    <virtual-visit />
+
     <div class="pt-24 lg:pt-40 px-8 lg:px-56">
       <div class="flex flex-col lg:flex-row lg:justify-between lg:pl-20 mb-32">
         <div class="lg:w-2/5 lg:pt-52 pb-12 lg:pb-60">
@@ -252,6 +256,9 @@
 <script>
 import 'swiper/swiper-bundle.min.css'
 
+import Prices from '@/components/Prices'
+import VirtualVisit from '@/components/BlockVirtualVisit'
+
 import ArrowLeftRight from '@/assets/img/svg/arrow-left-right.svg?inline'
 
 export default {
@@ -303,12 +310,14 @@ export default {
           alt: 'Une haute idée du confort',
           flex: 'flex-1 lg:flex-2'
         }
-      ],
+      ]
     }
   },
 
   components: {
-    ArrowLeftRight
+    ArrowLeftRight,
+    Prices,
+    VirtualVisit
   },
 
   mounted() {
