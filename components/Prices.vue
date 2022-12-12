@@ -61,13 +61,15 @@ export default {
 
       // Check plans
       let plans = []
-      for (const element of bien.images[0].image) {
-        const elm = element;
-        let plan = {
-          type: elm.$.type,
-          source: elm.source[0]
+      if (bien.images) {
+        for (const element of bien.images[0].image) {
+          const elm = element;
+          let plan = {
+            type: elm.$.type,
+            source: elm.source[0]
+          }
+          plans.push(plan)
         }
-        plans.push(plan)
       }
 
       return {
