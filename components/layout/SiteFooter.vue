@@ -615,7 +615,7 @@
     },
 
     mounted () {
-      const tomorrow =this.$moment().add(1, 'days').format('YYYY, MM, DD');
+      const tomorrow = this.$moment().add(1, 'days').format('YYYY, MM, DD');
 
       this.disabledDates = {
         to: new Date(tomorrow),
