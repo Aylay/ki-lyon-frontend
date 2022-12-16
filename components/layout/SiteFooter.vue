@@ -621,7 +621,7 @@
         to: new Date(tomorrow),
         days: [0]
       }
-      
+
       const utm = this.$store.state.query.utm
       if (!utm) {
         const utmSource = this.$route.query.utm_source ? this.$route.query.utm_source : 'acces_direct'

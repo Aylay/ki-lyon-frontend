@@ -118,7 +118,6 @@
     watch: {
       '$route' (to, from) {
         this.openMenu()
-        console.log(this.$store.state.query.utmSource)
       }
     },
   }
