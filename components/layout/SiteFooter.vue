@@ -621,6 +621,13 @@
         to: new Date(tomorrow),
         days: [0]
       }
+      const utm = this.$store.state.query.utm
+      if (!utm) {
+        const utmSource = this.$route.query.utm_source ? this.$route.query.utm_source : 'acces_direct'
+        const utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
+        const utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
+        this.$store.commit('query/setUTM', { utmSource, utmMedium, utmCampagne } )
+      }
     },
 
     methods: {
@@ -642,9 +649,6 @@
 
           let type = newWouldLike.length > 0 ? newWouldLike[0] : null
 
-          let utmSource = this.$route.query.utm_source ? this.$route.query.utm_source : 'acces_direct'
-          let utmMedium = this.$route.query.utm_medium ? this.$route.query.utm_medium : 'acces_direct'
-          let utmCampagne = this.$route.query.utm_campaign ? this.$route.query.utm_campaign : 'acces_direct'
           try {
             await this.$axios.$post("https://admin.ki-lyon.fr/api/prospects", {
             // await this.$axios.$post(this.strapiURL + "/api/prospects", {
@@ -662,9 +666,9 @@
                 ville: this.city,
                 date: this.$moment(this.date).format('DD/MM/YYYY'),
                 heure: this.hourSelected,
-                utmSource: utmSource,
-                utmMedium: utmMedium,
-                utmCampagne: utmCampagne,
+                utmSource: this.$store.state.query.utmSource,
+                utmMedium: this.$store.state.query.utmMedium,
+                utmCampagne: this.$store.state.query.utmCampagne,
                 dateSoumission: this.$moment().format('DD/MM/YYYY'),
                 nl: this.nl ? this.nl : false
               }
@@ -909,9 +913,6 @@
           window.location = url;
         }
       }
-    },
-
-    beforeMount () {
     },
 
     beforeDestroy () {
