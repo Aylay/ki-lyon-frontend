@@ -49,6 +49,7 @@ export default {
         }
       }
 
+
       // Check annexes
       let annexes = ''
       if (bien.description[0].options) {
@@ -84,6 +85,8 @@ export default {
       }
     })
 
+    newProperties = newProperties.sort(function(a, b){return a.prix - b.prix})
+
     const newPropertiesFiltered = this.groupBy(newProperties, 'nbPieces')
     Object.entries(newPropertiesFiltered).forEach(([key, value]) => {
       let prices = []
@@ -112,7 +115,11 @@ export default {
       return data;
     });
     const jsonData = await this.xmlToJSON(xmlData);
-    if (jsonData && jsonData.clients) this.properties = jsonData.clients.client[0].groupes[0].groupe[0].annonceurs[0].annonceur[0].programmes[0].programme[0].biens[0].bien
+    if (jsonData && jsonData.clients) {
+      const programmes = jsonData.clients.client[0].groupes[0].groupe[0].annonceurs[0].annonceur[0].programmes[0].programme
+      const kiProg = programmes.filter((elm) => elm.identification[0].referencemgc[0] === '186263439')
+      this.properties = kiProg[0].biens[0].bien
+    }
   },
 
   methods: {
