@@ -18,9 +18,7 @@
         </h2>
         <p class="text-s-m lg:text-s font-robotoslab text-white">
           Espace de vente Ki<br />
-          19 Boulevard Eugène Deruelle, Lyon 3<br />
-          Ouverture dès le lundi 14 novembre de 14h à 19h<br /> 
-          du mardi au samedi de 9h à 19h
+          19 Boulevard Eugène Deruelle, Lyon 3
         </p>
         <div class="lg:flex justify-center gap-10 mt-16">
           <a
@@ -424,9 +422,7 @@
           </div>
           <p class="text-xs-m lg:text-xs font-robotoslab">
             Espace de vente Ki<br />
-            19 Boulevard Eugène Deruelle, Lyon 3<br />
-            Ouverture dès le lundi 14 novembre de 14h à 19h<br /> 
-            du mardi au samedi de 9h à 19h
+            19 Boulevard Eugène Deruelle, Lyon 3
           </p>
         </div>
         <a
