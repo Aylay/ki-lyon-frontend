@@ -159,7 +159,7 @@
             Labels
           </h3>
           <p class="mt-10 mb-24 lg:mb-40 text-s-m lg:text-s font-robotoslab">
-            Labels qualité, normes sécurité, services partagés, exigence maximisée, chaque référence et chaque prestation visent une excellence évidente...
+            Labels qualité (NF Habitat, 2EC, Biodivercity), normes sécurité, services partagés, exigence maximisée, chaque référence et chaque prestation visent une excellence évidente...
           </p>
 
           <h4 class="text-h4-m lg:text-h4 font-roboto font-black text-bleu-2 uppercase mt-24 lg:mt-40">
@@ -174,9 +174,6 @@
             </li>
             <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Volets roulants ou BSO à commande centralisée
-            </li>
-            <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
-              Lames bois sur les terrasses et loggias
             </li>
             <li class="text-s-m lg:text-s font-robotoslab pl-5 relative before:content-[] before:w-2 before:h-2 before:rounded-full before:bg-black before:absolute before:left-0 before:top-4">
               Portes palières à serrures 5 points A2P**
